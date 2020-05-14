@@ -1,0 +1,112 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  position: relative;
+  font-style: 'Roboto', sans-serif;
+  /*background-color:	#32CD32;*/
+}
+
+a {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.header {
+  text-align: center;
+}
+
+.container-cvs {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+canvas {
+  display: block;
+}
+
+/*button {
+  display: block;
+  margin: 0 auto;
+  background: blue;
+  margin-bottom: 15px;
+}*/
+
+button {
+  position: relative;
+  display: block;
+
+  background: none;
+  outline: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+
+  color: #eee;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: .05em;
+  margin: 0 auto;
+  margin-bottom: 20px;
+}
+
+button span {
+  position: relative;
+  z-index: 1;
+  display: block;
+  min-width: 1em;
+  padding: 20px;
+  border-radius: 2em;
+  background-color: #000;
+  border: 1px solid darken(#1E90FF, 5%);
+  box-shadow: -5px 5px 10px rgba(0, 0, 0, 0.2);
+  transition: transform .1s, box-shadow .2s, background-color .2s;
+  -webkit-transition: transform .1s, box-shadow .2s, background-color .2s;
+  -moz-transition: transform .1s, box-shadow .2s, background-color .2s;
+  -ms-transition: transform .1s, box-shadow .2s, background-color .2s;
+  -o-transition: transform .1s, box-shadow .2s, background-color .2s;
+}
+
+button::after {
+  content: '';
+  position: absolute;
+  top: -1em;
+  bottom: -1em;
+  left: -1em;
+  right: -1em;
+  border-radius: 4em;
+  box-shadow: 0 0 0px rgba(0, 0, 0, 0.2), inset 0 0 0px rgba(0, 0, 0, 0.2);
+  transition: box-shadow .1s;
+}
+
+button:hover span,
+button:focus span {
+  background-color: lighten(#1E90FF, 5%);
+}
+
+button:active span{
+  background-color: #808080;
+  transform: scale(0.97);
+  box-shadow: -2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+button:active::after {
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.2), inset -3px 3px 1em rgba(0, 0, 0, 0.2);
+}
+
+.ball,
+.goalkeeper,
+.mark,
+.title {
+  display: block;
+  margin: -600px auto 0;
+}
+
+.hidden {
+  position: absolute;
+  clip: rect(0 0 0 0);
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+}
