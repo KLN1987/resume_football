@@ -89,7 +89,7 @@ function init() {
   document.addEventListener('keydown', checkKeyDown);
   document.addEventListener('keyup', checkKeyUp);
   document.addEventListener('mousemove', mouseMove);
-  document.addEventListener('click', mouseClick);
+  map.addEventListener('click', mouseClick);
 
   player = new Player();
   goalkeeper = new Goalkeeper();
@@ -118,15 +118,11 @@ function mouseMove(evt) {
   mouseX = evt.pageX - map.offsetLeft;
   mouseY = evt.pageY - map.offsetTop;
 
-  document.querySelector('.header').innerHTML = "X: " + mouseX + " Y: " + mouseY;
 }
 
 function mouseClick(evt) {
-
   player.drawX = mouseX - player.width/2;
   player.drawY = mouseY - player.height/2;
-
-  document.querySelector('.header').innerHTML = "Clicked";
 
 }
 
