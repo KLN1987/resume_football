@@ -221,6 +221,7 @@ Mark.prototype.draw = function () {
         this.drawX = STAR_COORD_BALL_X;
         this.drawY = STAR_COORD_BALL_Y;
         containerCard.innerHTML = `
+        <div class="container">
         <div class="card card-skills">
         <div class="card-header">
         <h2 class="card-title">Навыки</h2>
@@ -251,6 +252,7 @@ Mark.prototype.draw = function () {
           <img src="img/leaguage.png" class="lang-photo" alt="leaguage"> 
         </div>
         </div>
+        </div>
        `
        modalCard();
     }
@@ -269,6 +271,7 @@ Mark.prototype.draw = function () {
       this.drawX = STAR_COORD_BALL_X;
       this.drawY = STAR_COORD_BALL_Y;
       containerCard.innerHTML = `
+      <div class="container">
       <div class="card card-aducation">
       <div class="card-header">
       <h2 class="card-title">Образование</h2>
@@ -298,6 +301,7 @@ Mark.prototype.draw = function () {
           <img class="sertificate-photo" src="img/html.jpg" alt="sertificate of HTML/CSS 1 level">
           <img class="sertificate-photo" src="img/html2.jpg" alt="sertificate of HTML/CSS 2 level">
           <img class="sertificate-photo" src="img/js.jpg" alt="sertificate of JS">
+        </div>
         </div>
         </div>
         </div>
