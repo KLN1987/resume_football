@@ -2,6 +2,10 @@ window.onload = init;
 
 // объявдяем переменные
 var container;
+var headerTitle
+var body;
+
+var card;
 
 var map;
 var ctxMap;
@@ -21,8 +25,6 @@ var ctxTitle;
 var resume;
 var game;
 
-//var gameWidth;
-//var gameHeight;
 var gameWidth = 1200;
 var gameHeight = 600;
 
@@ -51,6 +53,8 @@ var requestAnimFrame = window.requestAnimationFrame || window.webkitRequestAnima
 function init() {
   // resize();
   container = document.querySelector('.container-cvs');
+  headerTitle = document.querySelector('.header__title');
+  body = document.querySelector('body');
 
   map = document.querySelector('.map');
   ctxMap = map.getContext('2d');
@@ -89,7 +93,7 @@ function init() {
   document.addEventListener('keydown', checkKeyDown);
   document.addEventListener('keyup', checkKeyUp);
   document.addEventListener('mousemove', mouseMove);
-  map.addEventListener('click', mouseClick);
+  document.addEventListener('click', mouseClick);
 
   player = new Player();
   goalkeeper = new Goalkeeper();
@@ -100,32 +104,16 @@ function init() {
   updateTitles();
 }
 
-/*function resize() {
-  if (window.innerWidth < 640 ) {
-    gameWidth = 320;
-    gameHeight = 320;
-  } else if (window.innerWidth < 1200) {
-    gameWidth = 600;
-    gameHeight = 400;
-  } else {
-    gameWidth = 1200;
-    gameHeight = 600;
-  }
-}*/
-
 //движение мыши 
 function mouseMove(evt) {
   mouseX = evt.pageX - map.offsetLeft;
   mouseY = evt.pageY - map.offsetTop;
-
 }
-
+//клик мыши
 function mouseClick(evt) {
-  player.drawX = mouseX - player.width/2;
-  player.drawY = mouseY - player.height/2;
-
-}
-
+  player.drawX = mouseX - player.width;
+  player.drawY = mouseY - player.height;
+};
 //движение мяча
 function loop() {
   if (isPlaying) { //если играем
@@ -153,6 +141,7 @@ function draw() {
 
 function update() {
   player.update();
+  player.boom();
 }
 
 // функция с данными про объект, которым играем(мяч)
@@ -216,6 +205,30 @@ Mark.prototype.draw = function () {
       this.drawX + 850, this.drawY - 140, this.width, this.height);    
 }
 
+  Player.prototype.boom = function() {
+    // проверка на столкновение
+    if ((this.drawX >= mark.drawX) && (this.drawY >= mark.drawY) &&
+      (this.drawX <= mark.drawX + mark.width - 50) && (this.drawY <= mark.drawY + mark.height - 50)) {
+        console.log('aaaaa');
+    }
+    if (this.drawX > (mark.drawX + 850) && this.drawY > (mark.drawY - 140) &&
+      this.drawX < (mark.drawX + 850) + mark.width - 50 && this.drawY < (mark.drawY - 140) + mark.height - 50) {
+        console.log("ddd");
+    }
+    if (this.drawX > (mark.drawX + 850) && this.drawY > mark.drawY &&
+    this.drawX < (mark.drawX + 850) + mark.width - 50 && this.drawY < mark.drawY + mark.height - 50) {
+      console.log("bbb");
+    }
+    if (this.drawX > mark.drawX && this.drawY > (mark.drawY - 140) &&
+    this.drawX < mark.drawX + mark.width - 50 && this.drawY < (mark.drawY - 140) + mark.height - 50) {
+      console.log("ccc");
+    }
+    if (this.drawX > goalkeeper.drawX && this.drawY > goalkeeper.drawY &&
+    this.drawX < goalkeeper.drawX + goalkeeper.width - 50 && this.drawY < goalkeeper.drawY + goalkeeper.height - 50) {
+      console.log("eee");
+    }
+}
+
 //перемещение мяча по канвасу
 Player.prototype.update = function() {
   if (this.drawX <= 0) this.drawX = 0;
@@ -223,10 +236,10 @@ Player.prototype.update = function() {
   if (this.drawY <= 0) this.drawY = 0;
   if (this.drawY > gameHeight - this.height) this.drawY = gameHeight - this.height;
   
-  // проверка на столкновение
+  /*// проверка на столкновение
   if ( this.drawX >= mark.drawX && this.drawY >= mark.drawY &&
     this.drawX <= mark.drawX + mark.width - 50 && this.drawY <= mark.drawY + mark.height - 50) {
-      console.log("ddd");
+      return console.log('aaa');
   }
   if (this.drawX > (mark.drawX + 850) && this.drawY > (mark.drawY - 140) &&
     this.drawX < (mark.drawX + 850) + mark.width - 50 && this.drawY < (mark.drawY - 140) + mark.height - 50) {
@@ -243,8 +256,8 @@ Player.prototype.update = function() {
   if (this.drawX > goalkeeper.drawX && this.drawY > goalkeeper.drawY &&
   this.drawX < goalkeeper.drawX + goalkeeper.width - 50 && this.drawY < goalkeeper.drawY + goalkeeper.height - 50) {
     console.log("eee");
-  }
-
+  }*/
+  // body.insertAdjacentHTML("afterbegin", card);
   this.chooseDirection();
 }
 //напрявляющие мяча
@@ -303,12 +316,14 @@ function openResume() {
   container.classList.add('hidden');
   resume.classList.add('hidden');
   game.classList.remove('hidden');
+  headerTitle.classList.add('hidden');
 };
 //отрывает игру
 function openGame() {
   container.classList.remove('hidden');
   resume.classList.remove('hidden');
   game.classList.add('hidden');
+  headerTitle.classList.remove('hidden');
 }
 
 function updateTitles() {
@@ -318,7 +333,6 @@ function updateTitles() {
   ctxTitle.fillText("Образование", 140, 175);
   ctxTitle.fillText("Мои работы", 965, 175);
   ctxTitle.fillText("Контакты", 995, 470);
-  //ctxTitle.strokeText("Контакты", 1000, 470);
 }
 // рисует фон игры
 function drawBg() {
