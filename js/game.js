@@ -4,6 +4,10 @@ window.onload = init;
 var container;
 var headerTitle
 var body;
+var containerCard;
+var containerCard2;
+var card;
+var cardClose;
 
 var card;
 
@@ -25,8 +29,11 @@ var ctxTitle;
 var resume;
 var game;
 
-var gameWidth = 1200;
-var gameHeight = 600;
+var GAME_WIDTH = 1200;
+var GAME_HEIGHT = 600;
+
+var STAR_COORD_BALL_X = 600;
+var STAR_COORD_BALL_Y = 540;
 
 var bgGame = new Image();
 bgGame.src = 'img/gates.jpg';
@@ -51,10 +58,11 @@ var requestAnimFrame = window.requestAnimationFrame || window.webkitRequestAnima
 
 //игра
 function init() {
-  // resize();
   container = document.querySelector('.container-cvs');
   headerTitle = document.querySelector('.header__title');
   body = document.querySelector('body');
+  containerCard = document.querySelector('.container-card');
+  containerCard2 = document.querySelector('.contain-card2');
 
   map = document.querySelector('.map');
   ctxMap = map.getContext('2d');
@@ -71,16 +79,16 @@ function init() {
   title = document.querySelector('.title');
   ctxTitle = title.getContext('2d');
 
-  map.width = gameWidth;
-  map.height = gameHeight;
-  ball.width = gameWidth;
-  ball.height = gameHeight;
-  goalkeeper.width = gameWidth;
-  goalkeeper.height = gameHeight;
-  markCvs.width = gameWidth;
-  markCvs.height = gameHeight;
-  title.width = gameWidth;
-  title.height = gameHeight;
+  map.width = GAME_WIDTH;
+  map.height = GAME_HEIGHT;
+  ball.width = GAME_WIDTH;
+  ball.height = GAME_HEIGHT;
+  goalkeeper.width = GAME_WIDTH;
+  goalkeeper.height = GAME_HEIGHT;
+  markCvs.width = GAME_WIDTH;
+  markCvs.height = GAME_HEIGHT;
+  title.width = GAME_WIDTH;
+  title.height = GAME_HEIGHT;
 
   ctxTitle.fillStyle = "#ffffff";
   ctxTitle.font = 'bold 24px sans-serif';
@@ -93,7 +101,7 @@ function init() {
   document.addEventListener('keydown', checkKeyDown);
   document.addEventListener('keyup', checkKeyUp);
   document.addEventListener('mousemove', mouseMove);
-  document.addEventListener('click', mouseClick);
+  container.addEventListener('click', mouseClick);
 
   player = new Player();
   goalkeeper = new Goalkeeper();
@@ -102,6 +110,7 @@ function init() {
   drawBg();
   startLoop();
   updateTitles();
+
 }
 
 //движение мыши 
@@ -140,8 +149,9 @@ function draw() {
 }
 
 function update() {
-  player.update();
   player.boom();
+  player.update();
+  //player.boom();
 }
 
 // функция с данными про объект, которым играем(мяч)
@@ -204,60 +214,139 @@ Mark.prototype.draw = function () {
   ctxMark.drawImage(ballGame, this.srcX, this.srcY, this.width, this.height, 
       this.drawX + 850, this.drawY - 140, this.width, this.height);    
 }
-
-  Player.prototype.boom = function() {
-    // проверка на столкновение
+ // проверка на столкновение
+  Player.prototype.boom = function(evt) {  
     if ((this.drawX >= mark.drawX) && (this.drawY >= mark.drawY) &&
       (this.drawX <= mark.drawX + mark.width - 50) && (this.drawY <= mark.drawY + mark.height - 50)) {
-        console.log('aaaaa');
+        this.drawX = STAR_COORD_BALL_X;
+        this.drawY = STAR_COORD_BALL_Y;
+        containerCard.innerHTML = `
+        <div class="card card-skills">
+        <div class="card-header">
+        <h2 class="card-title">Навыки</h2>
+        <button class="card-close">&#10006;</button>
+        </div>
+        <div class="card-description skills">
+          <img src="img/html_css_js.png" class="skills-photo" alt="HTML, CSS, JS"> 
+          <img src="img/git.png" class="skills-photo" alt="Git"> 
+          <img src="img/github.png" class="skills-photo github-photo" alt="GitHub">
+          <img src="img/kbr_adap.png" class="skills-photo cross-photo" alt="Adaptive Cross-browser">
+          <img src="img/sass_less.png" class="skills-photo pre-photo" alt="Sass Less">
+          <img src="img/gulp.png" class="skills-photo gulp-photo" alt="Gulp">
+          <img src="img/avocode.png" class="skills-photo" alt="Avacode">
+          <img src="img/figma.png" class="skills-photo" alt="Figma">
+          <img src="img/ps.png" class="skills-photo" alt="Photoshop">      
+        </div>
+        <div class="card-description skills">
+          <img src="img/cooperation.png" class="soft-skills-photo" alt="team">
+          <img src="img/communicate.png" class="soft-skills-photo" alt="communicate">
+          <img src="img/listener.png" class="soft-skills-photo" alt="listener">
+          <img src="img/speech.png" class="soft-skills-photo" alt="speech">
+          <img src="img/respect.png" class="soft-skills-photo" alt="respect">
+          <img src="img/leadership.png" class="soft-skills-photo" alt="leadership">
+          <img src="img/creative.png" class="soft-skills-photo" alt="creative">
+          <img src="img/humor.png" class="soft-skills-photo" alt="humor"> 
+        </div>
+        <div class="card-description skills">
+          <img src="img/leaguage.png" class="lang-photo" alt="leaguage"> 
+        </div>
+        </div>
+       `
+       modalCard();
     }
     if (this.drawX > (mark.drawX + 850) && this.drawY > (mark.drawY - 140) &&
       this.drawX < (mark.drawX + 850) + mark.width - 50 && this.drawY < (mark.drawY - 140) + mark.height - 50) {
-        console.log("ddd");
+        this.drawX = STAR_COORD_BALL_X;
+        this.drawY = STAR_COORD_BALL_Y;
     }
     if (this.drawX > (mark.drawX + 850) && this.drawY > mark.drawY &&
     this.drawX < (mark.drawX + 850) + mark.width - 50 && this.drawY < mark.drawY + mark.height - 50) {
-      console.log("bbb");
+      this.drawX = STAR_COORD_BALL_X;
+      this.drawY = STAR_COORD_BALL_Y;
     }
     if (this.drawX > mark.drawX && this.drawY > (mark.drawY - 140) &&
     this.drawX < mark.drawX + mark.width - 50 && this.drawY < (mark.drawY - 140) + mark.height - 50) {
-      console.log("ccc");
+      this.drawX = STAR_COORD_BALL_X;
+      this.drawY = STAR_COORD_BALL_Y;
+      containerCard.innerHTML = `
+      <div class="card card-aducation">
+      <div class="card-header">
+      <h2 class="card-title">Образование</h2>
+      <button class="card-close">&#10006;</button>
+      </div>
+     <div class="card-description">
+        <p class="card-name">Московский государственный университет инженерной экологии, Москва</p>
+       <ul class="card-list">
+          <li class="card-item">2005 - 2010г.г.</li>
+          <li class="card-item">Инженер проектировщик машин для химических производств</li>
+        </ul>
+      </div>
+      <div class="card-description">
+        <p class="card-name">SBA (Student of Business Administration) programme 2013</p>
+        <ul class="card-list">
+          <li class="card-item">2013 г.</li>
+          <li class="card-item">Ассоциация Менеджеров России, Маркетинг</li>
+        </ul>
+      </div>
+      <div class="card-description">
+        <p class="card-name">HTML Academy</p>
+        <ul class="card-list">
+          <li class="card-item">2019-2020г.г.</li>
+           <li class="card-item">Frontend-разработчик</li>
+          </ul>
+          <div class="card-sertificates">
+          <img class="sertificate-photo" src="img/html.jpg" alt="sertificate of HTML/CSS 1 level">
+          <img class="sertificate-photo" src="img/html2.jpg" alt="sertificate of HTML/CSS 2 level">
+          <img class="sertificate-photo" src="img/js.jpg" alt="sertificate of JS">
+        </div>
+        </div>
+        </div>
+    ` 
+    modalCard();
     }
     if (this.drawX > goalkeeper.drawX && this.drawY > goalkeeper.drawY &&
-    this.drawX < goalkeeper.drawX + goalkeeper.width - 50 && this.drawY < goalkeeper.drawY + goalkeeper.height - 50) {
-      console.log("eee");
+    this.drawX < goalkeeper.drawX + (goalkeeper.width - 50) && this.drawY < goalkeeper.drawY + (goalkeeper.height - 50)) {
+      this.drawX = STAR_COORD_BALL_X;
+      this.drawY = STAR_COORD_BALL_Y;
+      containerCard.innerHTML = `
+      <div class="container">
+        <div class="card card-aboutme">
+          <div class="card-header">
+          <h2 class="card-title">Обо мне</h2>
+          <button class="card-close">&#10006;</button>
+          </div>
+        <img class="card-photo" src="img/my-photo.jpg" name="my photo">
+        <div class="card-description">
+          <p class="card-name">Карпов Лев Николаевич</p>
+          <ul class="card-list">
+              <li class="card-item">Мне 32 года. Родился 18.12.1987г.</li>
+              <li class="card-item">Есть успешный, учебный опыт верстки в HTML academy. Сейчас изучаю JS. Имею огромное желание развиваться в
+                Frontend, однако мало опыта в этом.</li>
+              <li class="card-item">Готов рассмотреть варианты со стажеровкой, т.к. понимаю, что мой опыт совсем не большой, а даже
+                минимальный.</li>
+              <li class="card-item">Люблю футбол! Любимый клуб Спартак Москва, из зарубежных болею за Реал Мадрид.</li>
+              <li class="card-item">Три любимых футболиста:<br>1. Рауль 2. Дэвид Бэкхем 3. Франческо Тотти</li>
+              <li class="card-item">Долго и успешно занимался самбо и дзюдо (КМС). Сейчас занимаюсь, для поддержания формы в домашних
+                усллвиях.</li>
+              <li class="card-item">Люблю читать.</li>
+              <li class="card-item">Свободное время провожу семьей, у меня двое маленьких сыновей и это самое главное счастье.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        </div>
+         `
+      modalCard();
     }
+
 }
 
 //перемещение мяча по канвасу
 Player.prototype.update = function() {
   if (this.drawX <= 0) this.drawX = 0;
-  if (this.drawX > gameWidth - this.width) this.drawX = gameWidth - this.width;
+  if (this.drawX > GAME_WIDTH - this.width) this.drawX = GAME_WIDTH - this.width;
   if (this.drawY <= 0) this.drawY = 0;
-  if (this.drawY > gameHeight - this.height) this.drawY = gameHeight - this.height;
-  
-  /*// проверка на столкновение
-  if ( this.drawX >= mark.drawX && this.drawY >= mark.drawY &&
-    this.drawX <= mark.drawX + mark.width - 50 && this.drawY <= mark.drawY + mark.height - 50) {
-      return console.log('aaa');
-  }
-  if (this.drawX > (mark.drawX + 850) && this.drawY > (mark.drawY - 140) &&
-    this.drawX < (mark.drawX + 850) + mark.width - 50 && this.drawY < (mark.drawY - 140) + mark.height - 50) {
-      console.log("aaa");
-  }
-  if (this.drawX > (mark.drawX + 850) && this.drawY > mark.drawY &&
-  this.drawX < (mark.drawX + 850) + mark.width - 50 && this.drawY < mark.drawY + mark.height - 50) {
-    console.log("bbb");
-  }
-  if (this.drawX > mark.drawX && this.drawY > (mark.drawY - 140) &&
-  this.drawX < mark.drawX + mark.width - 50 && this.drawY < (mark.drawY - 140) + mark.height - 50) {
-    console.log("ccc");
-  }
-  if (this.drawX > goalkeeper.drawX && this.drawY > goalkeeper.drawY &&
-  this.drawX < goalkeeper.drawX + goalkeeper.width - 50 && this.drawY < goalkeeper.drawY + goalkeeper.height - 50) {
-    console.log("eee");
-  }*/
-  // body.insertAdjacentHTML("afterbegin", card);
+  if (this.drawY > GAME_HEIGHT - this.height) this.drawY = GAME_HEIGHT - this.height;
   this.chooseDirection();
 }
 //напрявляющие мяча
@@ -308,7 +397,7 @@ function checkKeyUp(evt) {
 
 //очищаем хвост отрисовки (прямоугольную область)
 function clearCtxBall() {
-  ctxBall.clearRect(0, 0, gameWidth, gameHeight);
+  ctxBall.clearRect(0, 0, GAME_WIDTH, GAME_HEIGHT);
 }
 
 // открывет резюме
@@ -325,17 +414,27 @@ function openGame() {
   game.classList.add('hidden');
   headerTitle.classList.remove('hidden');
 }
-
+// закрывате информацию из резюме в игре
+function closeCard() {
+  card.classList.add('hidden');
+}
+// надписи в игре
 function updateTitles() {
-  ctxTitle.clearRect(0, 0, gameWidth, gameHeight);
+  ctxTitle.clearRect(0, 0, GAME_WIDTH, GAME_HEIGHT);
   ctxTitle.fillText("Обо мне", 590, 470);
   ctxTitle.fillText("Навыки", 140, 470);
   ctxTitle.fillText("Образование", 140, 175);
   ctxTitle.fillText("Мои работы", 965, 175);
   ctxTitle.fillText("Контакты", 995, 470);
 }
+
+function modalCard() {
+  cardClose = containerCard.querySelector('.card-close');
+  card = containerCard.querySelector('.card');  
+  cardClose.addEventListener('click', closeCard);
+}
 // рисует фон игры
 function drawBg() {
   ctxMap.drawImage(bgGame, 0, 0, 600, 400, //размеры картинки
-    0, 0, gameWidth, gameHeight);//размеры на которые надо растянуть
+    0, 0, GAME_WIDTH, GAME_HEIGHT);//размеры на которые надо растянуть
 };

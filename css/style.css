@@ -36,7 +36,8 @@ canvas {
   margin-bottom: 15px;
 }*/
 
-button {
+.resume,
+.game {
   position: relative;
   display: block;
 
@@ -54,7 +55,8 @@ button {
   margin-bottom: 20px;
 }
 
-button span {
+.resume span,
+.game span {
   position: relative;
   z-index: 1;
   display: block;
@@ -71,7 +73,8 @@ button span {
   -o-transition: transform .1s, box-shadow .2s, background-color .2s;
 }
 
-button::after {
+.resume::after,
+.game::after {
   content: '';
   position: absolute;
   top: -1em;
@@ -83,18 +86,22 @@ button::after {
   transition: box-shadow .1s;
 }
 
-button:hover span,
-button:focus span {
+.resume:hover span,
+.resume:focus span,
+.game:hover span,
+.game:focus span {
   background-color: lighten(#1E90FF, 5%);
 }
 
-button:active span{
+.resume:active span,
+.game:active span {
   background-color: #808080;
   transform: scale(0.97);
   box-shadow: -2px 2px 5px rgba(0, 0, 0, 0.2);
 }
 
-button:active::after {
+.resume:active::after,
+.game:active::after {
   box-shadow: 0 0 2px rgba(0, 0, 0, 0.2), inset -3px 3px 1em rgba(0, 0, 0, 0.2);
 }
 
@@ -112,4 +119,111 @@ button:active::after {
   width: 1px;
   height: 1px;
   margin: -1px;
+}
+
+/*стили для карточек резюме в игре*/
+.card {
+  position: absolute;
+  width: 400px;
+  height: 600px;
+  background-color: #DCDCDC;
+  padding: 10px;
+  overflow-y: scroll;
+  z-index: 2;
+}
+
+.card-aboutme {
+  top: 153px;
+  left: 450px;
+}
+
+.card-aducation,
+.card-skills {
+  top: 153px;
+  left: 90px;
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.card-title {
+  color: #4682B4;
+  font-family: 'Roboto', sans-serif;
+}
+.card-photo {
+  display: block;
+  width: 200px;
+  overflow: hidden;
+  height: 200px;
+  margin: 0 auto;
+  margin-bottom: 10px;
+}
+.card-description {
+  width: 300px;
+  border-top: 1px solid black;
+  margin: auto;
+}
+
+.card-name {
+  font-family: 'Roboto', sans-serif;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.card-item {
+  margin-bottom: 10px;
+}
+
+.card-close {
+  background-color: transparent;
+  width: 30px;
+  height: 30px;
+  border: none;
+  font-size: 20px;
+}
+
+.sertificate-photo {
+  display: block;
+  width: 300px;
+  overflow: hidden;
+  height: 300px;
+  margin: 0 auto;
+  margin-bottom: 10px;
+}
+
+.skills {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  padding-top: 10px;
+  justify-content: space-between;
+}
+
+.skills-photo {
+  width: 150px;
+  height: 150px;
+  margin-bottom: 10px;
+}
+
+.github-photo,
+.pre-photo,
+.cross-photo {
+  width: 300px;
+}
+
+.gulp-photo {
+  height: 200px;
+}
+
+.soft-skills-photo {
+  width: 120px;
+  height: 120px;
+  margin-bottom: 10px;
+}
+.lang-photo {
+  width: 300px;
+  height: 300px;
 }
