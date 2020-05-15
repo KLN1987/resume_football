@@ -416,7 +416,8 @@ function openGame() {
 }
 // закрывате информацию из резюме в игре
 function closeCard() {
-  card.classList.add('hidden');
+  //card.classList.add('hidden');
+  containerCard.style.display='none';
 }
 // надписи в игре
 function updateTitles() {
@@ -429,8 +430,10 @@ function updateTitles() {
 }
 
 function modalCard() {
+  
   cardClose = containerCard.querySelector('.card-close');
   card = containerCard.querySelector('.card');  
+  containerCard.style.display='block';
   cardClose.addEventListener('click', closeCard);
 }
 // рисует фон игры
