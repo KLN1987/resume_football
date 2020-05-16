@@ -5,7 +5,6 @@ var container;
 var headerTitle
 var body;
 var containerCard;
-var containerCard2;
 var card;
 var cardClose;
 
@@ -28,6 +27,10 @@ var ctxTitle;
 
 var resume;
 var game;
+
+document.addEventListener('click', function(evt) {
+  console.log(evt.target);
+})
 
 var GAME_WIDTH = 1200;
 var GAME_HEIGHT = 600;
@@ -62,7 +65,6 @@ function init() {
   headerTitle = document.querySelector('.header__title');
   body = document.querySelector('body');
   containerCard = document.querySelector('.container-card');
-  containerCard2 = document.querySelector('.contain-card2');
 
   map = document.querySelector('.map');
   ctxMap = map.getContext('2d');
@@ -101,7 +103,8 @@ function init() {
   document.addEventListener('keydown', checkKeyDown);
   document.addEventListener('keyup', checkKeyUp);
   document.addEventListener('mousemove', mouseMove);
-  container.addEventListener('click', mouseClick);
+  container.addEventListener('mousemove', mouseClick);
+  // document.addEventListener('mousedown', moveBall);
 
   player = new Player();
   goalkeeper = new Goalkeeper();
@@ -118,11 +121,13 @@ function mouseMove(evt) {
   mouseX = evt.pageX - map.offsetLeft;
   mouseY = evt.pageY - map.offsetTop;
 }
+
 //клик мыши
 function mouseClick(evt) {
-  player.drawX = mouseX - player.width;
-  player.drawY = mouseY - player.height;
+  player.drawX = mouseX; /*- player.width;*/
+  player.drawY = mouseY; /*- player.height;*/
 };
+
 //движение мяча
 function loop() {
   if (isPlaying) { //если играем
@@ -260,11 +265,43 @@ Mark.prototype.draw = function () {
       this.drawX < (mark.drawX + 850) + mark.width - 50 && this.drawY < (mark.drawY - 140) + mark.height - 50) {
         this.drawX = STAR_COORD_BALL_X;
         this.drawY = STAR_COORD_BALL_Y;
+        console.log('aaa');
     }
     if (this.drawX > (mark.drawX + 850) && this.drawY > mark.drawY &&
     this.drawX < (mark.drawX + 850) + mark.width - 50 && this.drawY < mark.drawY + mark.height - 50) {
       this.drawX = STAR_COORD_BALL_X;
       this.drawY = STAR_COORD_BALL_Y;
+      containerCard.innerHTML = `
+      <div class="container">
+      <div class="card card-contacs">
+      <div class="card-header">
+        <h2 class="card-title">Контакты</h2>
+        <button class="card-close">&#10006;</button>
+      </div>
+      <div class="card-description">
+        <div class="contact">
+          <img class="contact-img" src="img/phone.svg" alt="phone">
+          <p class="contact-info">+7 (903) 754-00-89</p>
+        </div>
+        <div class="contact">
+          <img class="contact-img" src="img/mail.svg" alt="mail">
+          <p class="contact-info">nt66@bk.ru</p>
+        </div>
+        <div class="contact">
+          <img class="contact-img telegram-img" src="img/telegram.png" alt="telegram">
+          <p class="contact-info">@KLN1987</p>
+        </div>
+        <div class="contact">
+          <img class="contact-img github-img" src="img/github-logo.png" alt="github">
+          <p class="contact-info">github.com/KLN1987</p>
+        </div>
+        <div class="contact">
+          <a href="https://wa.me/79037540089" class="contact-info whatsapp-info"></a>
+        </div>
+      </div>
+      </div>
+      `
+      modalCard();
     }
     if (this.drawX > mark.drawX && this.drawY > (mark.drawY - 140) &&
     this.drawX < mark.drawX + mark.width - 50 && this.drawY < (mark.drawY - 140) + mark.height - 50) {
@@ -433,8 +470,7 @@ function updateTitles() {
   ctxTitle.fillText("Контакты", 995, 470);
 }
 
-function modalCard() {
-  
+function modalCard() {  
   cardClose = containerCard.querySelector('.card-close');
   card = containerCard.querySelector('.card');  
   containerCard.style.display='block';
