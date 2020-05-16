@@ -1,3 +1,4 @@
+'use stirct';
 window.onload = init;
 
 // объявдяем переменные
@@ -28,10 +29,6 @@ var ctxTitle;
 var resume;
 var game;
 
-document.addEventListener('click', function(evt) {
-  console.log(evt.target);
-})
-
 var GAME_WIDTH = 1200;
 var GAME_HEIGHT = 600;
 
@@ -52,6 +49,8 @@ var isPlaying;
 
 var mouseX;
 var mouseY;
+
+var mouseControl = false;
 
 // поддержка браузеров
 var requestAnimFrame = window.requestAnimationFrame || window.webkitRequestAnimationFrame ||
@@ -99,12 +98,13 @@ function init() {
   game = document.querySelector('.game');
   resume.addEventListener('click', openResume);
   game.addEventListener('click', openGame);
-  
+
   document.addEventListener('keydown', checkKeyDown);
   document.addEventListener('keyup', checkKeyUp);
-  document.addEventListener('mousemove', mouseMove);
-  container.addEventListener('mousemove', mouseClick);
-  // document.addEventListener('mousedown', moveBall);
+  //document.addEventListener('mousemove', mouseMove);
+  //document.addEventListener('click', document.addEventListener('mousemove', mouseMove));
+  //document.addEventListener('click', mouseMove);
+  document.addEventListener('mousedown', ballMove);
 
   player = new Player();
   goalkeeper = new Goalkeeper();
@@ -115,18 +115,45 @@ function init() {
   updateTitles();
 
 }
+//движение мыши 
+function ballMove (evt) {
+  evt.preventDefault();
+  mouseX = evt.pageX;
+  mouseY = evt.pageY; 
+
+  function mouseMove(evtMove) {
+    evtMove.preventDefault();
+    mouseX = evtMove.pageX - container.offsetLeft;
+    mouseY = evtMove.pageY - container.offsetTop;
+    player.drawX = mouseX - player.width/2;
+    player.drawY = mouseY - player.height/2;
+  }
+
+  function mouseUp(upEvt) {
+    upEvt.preventDefault();
+
+    document.removeEventListener('mousemove', mouseMove);
+    document.removeEventListener('mouseup', mouseUp);
+  };
+  document.addEventListener('mousemove', mouseMove);
+  document.addEventListener('mouseup', mouseUp);
+} 
 
 //движение мыши 
-function mouseMove(evt) {
-  mouseX = evt.pageX - map.offsetLeft;
-  mouseY = evt.pageY - map.offsetTop;
-}
+/*function mouseMove(evt) {
+  mouseX = evt.pageX - container.offsetLeft;
+  mouseY = evt.pageY - container.offsetTop;
+  player.drawX = mouseX - player.width/2;
+  player.drawY = mouseY - player.height/2;
+  console.log(map.offsetLeft);
+};*/
 
 //клик мыши
-function mouseClick(evt) {
-  player.drawX = mouseX; /*- player.width;*/
-  player.drawY = mouseY; /*- player.height;*/
-};
+ /* function mouseClick(evt) {
+    player.drawX = mouseX - player.width/2;
+    player.drawY = mouseY - player.height/2;
+
+};*/
 
 //движение мяча
 function loop() {
@@ -457,7 +484,6 @@ function openGame() {
 }
 // закрывате информацию из резюме в игре
 function closeCard() {
-  //card.classList.add('hidden');
   containerCard.style.display='none';
 }
 // надписи в игре
@@ -469,7 +495,6 @@ function updateTitles() {
   ctxTitle.fillText("Мои работы", 965, 175);
   ctxTitle.fillText("Контакты", 995, 470);
 }
-
 function modalCard() {  
   cardClose = containerCard.querySelector('.card-close');
   card = containerCard.querySelector('.card');  
