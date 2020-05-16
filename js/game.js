@@ -102,7 +102,7 @@ function init() {
   document.addEventListener('keydown', checkKeyDown);
   document.addEventListener('keyup', checkKeyUp);
   //document.addEventListener('mousemove', mouseMove);
-  //document.addEventListener('click', document.addEventListener('mousemove', mouseMove));
+  document.addEventListener('click', mouseClick);
   //document.addEventListener('click', mouseMove);
   document.addEventListener('mousedown', ballMove);
 
@@ -149,11 +149,10 @@ function ballMove (evt) {
 };*/
 
 //клик мыши
- /* function mouseClick(evt) {
-    player.drawX = mouseX - player.width/2;
-    player.drawY = mouseY - player.height/2;
-
-};*/
+  function mouseClick() {
+    player.drawX = mouseX - player.width - 45;
+    player.drawY = mouseY - player.height - 130;
+};
 
 //движение мяча
 function loop() {
