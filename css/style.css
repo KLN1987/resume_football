@@ -146,7 +146,8 @@ canvas {
   left: 0;
 }
 
-.card-contacs {
+.card-contacs,
+.card-works {
   position: absolute;
   top: 0;
   left: 800px;
@@ -189,8 +190,8 @@ canvas {
 
 .card-close {
   background-color: transparent;
-  width: 30px;
-  height: 30px;
+  width: 50px;
+  height: 50px;
   border: none;
   font-size: 20px;
 }
@@ -263,4 +264,69 @@ canvas {
   width: 200px;
   height: 100px;
   overflow: hidden;
+}
+
+.work-photo {
+  width: 100%;
+  overflow: hidden;
+  height: 200px;
+  padding-top: 10px;
+}
+
+.work-info {
+  text-align: center;
+  font-weight: 600;
+  font-family: 'Roboto', sans-serif;
+}
+
+.work-btn {
+  display: flex;
+  justify-content: center;
+  width: 80%;
+  padding: 10px;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #000;
+  background: #fff;
+  border-radius: 25px;
+  box-shadow: 0 4px 6px rgba(122,122,122,.5);
+  margin: auto;
+  margin-bottom: 15px;
+}
+
+.work-btn:hover {
+  background-color: rgb(92, 162, 219);
+}
+
+.work-btn:active {
+  background: #fff;
+}
+
+.works {
+  margin-bottom: 20px;
+}
+
+.works-link {
+  justify-content: center;
+  margin-bottom: 15px;
+  margin-top: 15px;
+}
+
+.works-link a {
+  color: black;
+  position: relative;
+}
+
+.works-link a::after {
+  display: block;
+	position: absolute;
+	left: 0; /*изменить на right:0;, чтобы изменить направление подчёркивания */
+	width: 0;/*задаём длинну линии до наведения курсора*/
+	height: 2px; /*задаём ширину линии*/
+	background-color: black; /*задаём цвет линии*/
+	content: "";
+	transition: width 0.3s ease-out
+}
+.works-link a:hover:after {
+  width:100%;
 }

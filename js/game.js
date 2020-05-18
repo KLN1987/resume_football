@@ -3,11 +3,12 @@ window.onload = init;
 
 // объявдяем переменные
 var container;
-var headerTitle
+var headerTitle;
 var body;
 var containerCard;
 var card;
 var cardClose;
+var header;
 
 var card;
 
@@ -64,6 +65,7 @@ function init() {
   headerTitle = document.querySelector('.header__title');
   body = document.querySelector('body');
   containerCard = document.querySelector('.container-card');
+  header = document.querySelector('.header');
 
   map = document.querySelector('.map');
   ctxMap = map.getContext('2d');
@@ -292,7 +294,43 @@ Mark.prototype.draw = function () {
       this.drawX < (mark.drawX + 850) + mark.width - 50 && this.drawY < (mark.drawY - 140) + mark.height - 50) {
         this.drawX = STAR_COORD_BALL_X;
         this.drawY = STAR_COORD_BALL_Y;
-        console.log('aaa');
+        containerCard.innerHTML = `
+          <div class="container">
+          <div class="card card-works">
+          <div class="card-header">
+            <h2 class="card-title">Мои работы</h2>
+            <button class="card-close">&#10006;</button>
+          </div>
+          <div class="contact works-link">
+            <img class="contact-img github-img" src="img/github-logo.png" alt="github">
+            <a href="https://github.com/KLN1987/" class="contact-info">github.com/KLN1987</a>
+          </div>
+          <div class="card-description works">
+            <img class="work-photo" src="img/sedona.png" alt="Сайт Седона">
+            <p class="work-info">Учебный проект. Защитил на 100%. Кроссбраузерна и адаптивная верстка многостраничного сайта, по макету psd, с использованием Avacode.
+              Работа производилась с применением препроцессора LESS, сборщика Gulp, с применением БЭМ, Flexbox и PerfectPixel</p>
+            <a href="https://github.com/KLN1987/1072713-sedona-18" type="button" class="work-btn">Открыть репозиторий</a> 
+          </div>
+          <div class="card-description works">
+            <img class="work-photo" src="img/delivery.png" alt="Сайт Delivery-food">
+            <p class="work-info">Учебный проект. Адаптивная верстка, с применением Flexbox, по макету из Figma. Использовался чистый JavaScript, для регистрации на сайте,
+              формирований карточек товаров ресторанов, реализован поиск блюд, корзина с товароми и калькулятором. Информация о заказе записывается Local Storage.
+            </p>
+            <a href="https://github.com/KLN1987/delivery_food_js/" type="button" class="work-btn">Открыть репозиторий</a> 
+            <a href="https://kln1987.github.io/delivery_food_js/" type="button" class="work-btn">Открыть страницу</a> 
+          </div>
+          <div class="card-description works">
+            <img class="work-photo" src="img/star_wars.png" alt="Сайт Star Wars">
+            <p class="work-info">Учебный проект. Адаптивная верстка, с применением Flexbox, jQuery, по макету из Figma. Слайдер реализован при помощи Owl Carousel. 
+              Реализовано открытие видео с YouTube при помощи FancyBox.
+            </p>
+            <a href="https://github.com/KLN1987/Star-Wars" type="button" class="work-btn">Открыть репозиторий</a> 
+          </div>
+          </div>
+          </div>
+          </div>
+        `
+        modalCard();
     }
     if (this.drawX > (mark.drawX + 850) && this.drawY > mark.drawY &&
     this.drawX < (mark.drawX + 850) + mark.width - 50 && this.drawY < mark.drawY + mark.height - 50) {
@@ -484,10 +522,6 @@ function openGame() {
 }
 // закрывате информацию из резюме в игре
 function closeCard() {
-
-  //player.drawX = STAR_COORD_BALL_X;
-  //player.drawY = STAR_COORD_BALL_Y;
-  console.log(player.drawX);
   containerCard.style.display='none';
 }
 // надписи в игре
@@ -504,6 +538,7 @@ function modalCard() {
   card = containerCard.querySelector('.card');  
   containerCard.style.display='block';
   cardClose.addEventListener('click', closeCard);
+  header.addEventListener('click', closeCard);
 }
 // рисует фон игры
 function drawBg() {
