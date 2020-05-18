@@ -102,7 +102,7 @@ function init() {
   document.addEventListener('keydown', checkKeyDown);
   document.addEventListener('keyup', checkKeyUp);
   //document.addEventListener('mousemove', mouseMove);
-  document.addEventListener('click', mouseClick);
+  ball.addEventListener('click', mouseClick);
   //document.addEventListener('click', mouseMove);
   document.addEventListener('mousedown', ballMove);
 
@@ -149,8 +149,9 @@ function ballMove (evt) {
 };*/
 
 //клик мыши
-  function mouseClick() {
-    player.drawX = mouseX - player.width - 45;
+ function mouseClick(evt) {
+    evt.preventDefault();
+    player.drawX = mouseX - player.width - 15;
     player.drawY = mouseY - player.height - 130;
 };
 
@@ -483,6 +484,10 @@ function openGame() {
 }
 // закрывате информацию из резюме в игре
 function closeCard() {
+
+  //player.drawX = STAR_COORD_BALL_X;
+  //player.drawY = STAR_COORD_BALL_Y;
+  console.log(player.drawX);
   containerCard.style.display='none';
 }
 // надписи в игре
