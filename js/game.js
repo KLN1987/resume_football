@@ -107,6 +107,7 @@ function init() {
   ball.addEventListener('click', mouseClick);
   //document.addEventListener('click', mouseMove);
   document.addEventListener('mousedown', ballMove);
+  document.addEventListener('touchmove', ballTouch);
 
   player = new Player();
   goalkeeper = new Goalkeeper();
@@ -139,6 +140,29 @@ function ballMove (evt) {
   };
   document.addEventListener('mousemove', mouseMove);
   document.addEventListener('mouseup', mouseUp);
+} 
+//touch screen
+function ballTouch (evt) {
+  evt.preventDefault();
+  mouseX = evt.pageX;
+  mouseY = evt.pageY; 
+
+  function touchMove(evtMove) {
+    evtMove.preventDefault();
+    mouseX = evtMove.pageX - container.offsetLeft;
+    mouseY = evtMove.pageY - container.offsetTop;
+    player.drawX = mouseX - player.width/2;
+    player.drawY = mouseY - player.height/2;
+  }
+
+  function touchUp(upEvt) {
+    upEvt.preventDefault();
+
+    document.removeEventListener('touchmove', touchMove);
+    document.removeEventListener('touchend', touchUp);
+  };
+  document.addEventListener('touchmove', touchMove);
+  document.addEventListener('touchend', touchUp);
 } 
 
 //движение мыши 
@@ -433,9 +457,9 @@ Mark.prototype.draw = function () {
               <li class="card-item">Люблю футбол! Любимый клуб Спартак Москва, из зарубежных болею за Реал Мадрид.</li>
               <li class="card-item">Три любимых футболиста:<br>1. Рауль 2. Дэвид Бэкхем 3. Франческо Тотти</li>
               <li class="card-item">Долго и успешно занимался самбо и дзюдо (КМС). Сейчас занимаюсь, для поддержания формы в домашних
-                усллвиях.</li>
+                условиях.</li>
               <li class="card-item">Люблю читать.</li>
-              <li class="card-item">Свободное время провожу семьей, у меня двое маленьких сыновей и это самое главное счастье.</li>
+              <li class="card-item">Свободное время провожу семьей, у меня двое маленьких сыновей. Моя семья - это самое главное счастье.</li>
               </ul>
             </div>
           </div>
