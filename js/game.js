@@ -107,7 +107,7 @@ function init() {
   ball.addEventListener('click', mouseClick);
   //document.addEventListener('click', mouseMove);
   document.addEventListener('mousedown', ballMove);
-  document.addEventListener('touchmove', ballTouch);
+  ball.addEventListener('touchmove', ballTouch);
 
   player = new Player();
   goalkeeper = new Goalkeeper();
@@ -404,14 +404,14 @@ Mark.prototype.draw = function () {
       <button class="card-close">&#10006;</button>
       </div>
      <div class="card-description">
-        <p class="card-name">Московский государственный университет инженерной экологии, Москва</p>
+        <p class="card-name">Московский государственный университет инженерной экологии</p>
        <ul class="card-list">
           <li class="card-item">2005 - 2010г.г.</li>
           <li class="card-item">Инженер проектировщик машин для химических производств</li>
         </ul>
       </div>
       <div class="card-description">
-        <p class="card-name">SBA (Student of Business Administration) programme 2013</p>
+        <p class="card-name">SBA (Student of Business Administration) programme</p>
         <ul class="card-list">
           <li class="card-item">2013 г.</li>
           <li class="card-item">Ассоциация Менеджеров России, Маркетинг</li>
