@@ -6,226 +6,236 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Мое резюме</title>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style.min.css">
 </head>
 
 <body>
-  <div class="header">
-    <h1 class="header__title" id="header__title">Мое резюме</h1>
-    <button class="resume"><span>Смотреть резюме</span></button>
-    <button class="game hidden"><span>Открыть игру</span></button>
-  </div>
-  <div class="container-cvs">
-    <canvas class="map"></canvas>
-    <canvas class="goalkeeper"></canvas>
-    <canvas class="mark"></canvas>
-    <canvas class="title"></canvas>
-    <canvas class="ball"></canvas>
-
-
-
-    <div class="container-card">
-
-    </div>
-    <!--<div class="card card-aducation">
-      <div class="card-header">
-      <h2 class="card-title">Навыки</h2>
-      <button class="card-close">&#10006;</button>
-      </div>
-      <div class="card-description">
-        <p class="card-name">Московский государственный университет инженерной экологии, Москва</p>
-        <ul class="card-list">
-          <li class="card-item">2005 - 2010г.г.</li>
-          <li class="card-item">Инженер проектировщик машин для химических производств</li>
-        </ul>
-      </div>
-      <div class="card-description">
-        <p class="card-name">SBA (Student of Business Administration) programme 2013</p>
-        <ul class="card-list">
-          <li class="card-item">2013 г.</li>
-          <li class="card-item">Ассоциация Менеджеров России, Маркетинг</li>
-        </ul>
-      </div>
-      <div class="card-description">
-        <p class="card-name">HTML Academy</p>
-        <ul class="card-list">
-          <li class="card-item">2019-2020г.г.</li>
-          <li class="card-item">Frontend-разработчик</li>
-        </ul>
-        <div class="card-sertificates">
-          <img class="sertificate-photo" src="img/html.jpg" alt="sertificate of HTML/CSS 1 level">
-          <img class="sertificate-photo" src="img/html2.jpg" alt="sertificate of HTML/CSS 2 level">
-          <img class="sertificate-photo" src="img/js.jpg" alt="sertificate of JS">
-        </div>
-      </div>
-    </div>-->
-
-    <!-- <div class="card card-works">
-      <div class="card-header">
-        <h2 class="card-title">Мои работы</h2>
-        <button class="card-close">&#10006;</button>
-      </div>
-      <div class="contact works-link">
-        <img class="contact-img github-img" src="img/github-logo.png" alt="github">
-        <a href="https://github.com/KLN1987/" class="contact-info">github.com/KLN1987</a>
-      </div>
-      <div class="card-description works">
-        <img class="work-photo" src="img/sedona.png" alt="Сайт Седона">
-        <p class="work-info">Учебный проект. Защитил на 100%. Кроссбраузерна и адаптивная верстка многостраничного сайта, по макету psd, с использованием Avacode.
-          Работа производилась с применением препроцессора LESS, сборщика Gulp, с применением БЭМ, Flexbox и PerfectPixel</p>
-        <a href="https://github.com/KLN1987/1072713-sedona-18" type="button" class="work-btn">Открыть репозиторий</a> 
-      </div>
-      <div class="card-description works">
-        <img class="work-photo" src="img/delivery.png" alt="Сайт Delivery-food">
-        <p class="work-info">Учебный проект. Адаптивная верстка, с применением Flexbox, по макету из Figma. Использовался чистый JavaScript, для регистрации на сайте,
-          формирований карточек товаров ресторанов, реализован поиск блюд, корзина с товароми и калькулятором. Информация о заказе записывается Local Storage.
-        </p>
-        <a href="https://github.com/KLN1987/delivery_food_js/" type="button" class="work-btn">Открыть репозиторий</a> 
-        <a href="https://kln1987.github.io/delivery_food_js/" type="button" class="work-btn">Открыть страницу</a> 
-      </div>
-      <div class="card-description works">
-        <img class="work-photo" src="img/star_wars.png" alt="Сайт Star Wars">
-        <p class="work-info">Учебный проект. Адаптивная верстка, с применением Flexbox, jQuery, по макету из Figma. Слайдер реализован при помощи Owl Carousel. 
-          Реализовано открытие видео с YouTube при помощи FancyBox.
-        </p>
-        <a href="https://github.com/KLN1987/Star-Wars" type="button" class="work-btn">Открыть репозиторий</a> 
-      </div>
-    </div>-->
-  </div>
-
-  <div class="main">
-    <div class="personal-information">
-      <img class="personal-photo" src="img/my-photo.jpg" alt="my photo">
-      <div class="personal-description">
-        <div class="about-me">
-          <h3 class="about-me__title">Обо мне</h3>
-          <p class="about-me__description">
-            Добрый день! Давайте знакомиться.<br>
-            Мне 32 года.Родился 18.12.1987г.<br>
-            Есть успешный, учебный опыт верстки в HTML academy. Сейчас изучаю JS. Имею огромное желание развиваться в
-            Frontend, однако мало опыта в этом.
-            Готов рассмотреть варианты со стажеровкой, т.к. понимаю, что мой опыт совсем не большой, а даже
-            минимальный.<br>
-            Люблю футбол! Любимый клуб Спартак Москва, из зарубежных болею за Реал Мадрид.
-            Три любимых футболиста: 1. Рауль 2. Дэвид Бэкхем 3. Франческо Тотти.<br>
-            Долго и успешно занимался самбо и дзюдо (КМС). Сейчас занимаюсь, для поддержания формы в домашних
-            условиях. Люблю читать.<br>Свободное время провожу семьей, у меня двое маленьких сыновей. Моя семья - это
-            самое главное счастье.
-          </p>
-        </div>
-      </div>
-      <div class="personal-description">
-        <div class="about-me">
-          <h3 class="about-me__title">Контакты</h3>
-          <div class="about-me__description">
-            <div class="contact">
-              <img class="contact-img" src="img/phone.svg" alt="phone">
-              <p class="contact-info">+7 (903) 754-00-89</p>
-            </div>
-            <div class="contact">
-              <img class="contact-img" src="img/mail.svg" alt="mail">
-              <p class="contact-info">nt66@bk.ru</p>
-            </div>
-            <div class="contact">
-              <img class="contact-img telegram-img" src="img/telegram.png" alt="telegram">
-              <p class="contact-info">@KLN1987</p>
-            </div>
-            <div class="contact">
-              <img class="contact-img github-img" src="img/github-logo.png" alt="github">
-              <p class="contact-info">github.com/KLN1987</p>
-            </div>
-            <div class="contact">
-              <a href="https://wa.me/79037540089" class="contact-info whatsapp-info"></a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="personal-description">
-        <div class="about-me">
-          <h3 class="about-me__title">Знание языков</h3>
-          <div class="about-me__description">
-            <img src="img/leaguage.png" class="about-me__lang lang-photo" alt="leaguage">
-          </div>
-        </div>
+  <header>
+    <div class="header">
+      <h1 class="header__title hidden" id="header__title">Мое резюме</h1>
+      <img src="img/logo.png" alt="logo" class="header__img">
+      <button class="resume"><span>Смотреть резюме</span></button>
+      <button class="game hidden"><span>Открыть игру</span></button>
+      <div class="rules">
+        <ul class="rules-list">Правила:</ul>
+        <li class="rules-item">Управлять движеннием мяча можно при помощи стрелок на клавиатуре и при помощи клика по мишеням или вратарю.</li>
+        <li class="rules-item">Если вы открыли мое рюзему на планшете или телефоне, преверните ваше утройстро в горизонтальное положение, будет комфортнее.</li>
+        <li class="rules-item">Улыбнитесь!&#x1f603;</li>
       </div>
     </div>
-
-
-    <div class="resume-infomation">
-      <div class="resume-infomation__title">
-        <h2 class="resume-infomation__name">Карпов Лев Николаевич</h2>
-        <p class="resume-infomation__position">Frontend-разработчик</p>
+    <div class="container-cvs">
+      <canvas class="map"></canvas>
+      <canvas class="goalkeeper"></canvas>
+      <canvas class="mark"></canvas>
+      <canvas class="title"></canvas>
+      <canvas class="ball"></canvas>
+      <div class="container-card">
       </div>
-      <div class="resume-infomation__part">
-        <h3 class="part__title">Hard Skills</h3>
-        <div class="part__description">
-          <img src="img/html_css_js.png" class="part-photo" alt="HTML, CSS, JS">
-          <img src="img/sass_less.png" class="part-photo photo-length" alt="Sass Less">
-          <img src="img/git.png" class="part-photo" alt="Git">
-          <img src="img/avocode.png" class="part-photo" alt="Avacode">
-          <img src="img/figma.png" class="part-photo" alt="Figma">
-          <img src="img/ps.png" class="part-photo" alt="Photoshop">
-          <img src="img/kbr_adap.png" class="part-photo photo-length" alt="Adaptive Cross-browser">
-          <img src="img/gulp.png" class="part-photo" alt="Gulp">
-          <img src="img/github.png" class="part-photo photo-length" alt="GitHub">
-        </div>
-      </div>
-      <div class="resume-infomation__part">
-        <h3 class="part__title">Soft Skills</h3>
-        <div class="part__description">
-          <img src="img/cooperation.png" class="part-photo__soft" alt="team">
-          <img src="img/communicate.png" class="part-photo__soft" alt="communicate">
-          <img src="img/listener.png" class="part-photo__soft" alt="listener">
-          <img src="img/speech.png" class="part-photo__soft" alt="speech">
-          <img src="img/respect.png" class="part-photo__soft" alt="respect">
-          <img src="img/leadership.png" class="part-photo__soft" alt="leadership">
-          <img src="img/creative.png" class="part-photo__soft" alt="creative">
-          <img src="img/humor.png" class="part-photo__soft" alt="humor">
-        </div>
-      </div>
-      <div class="resume-infomation__part">
-        <h3 class="part__title">Образование</h3>
-        <div class="part__description">
-          <div class="part-aducation">
-            <div class="part-aducation__item">
-              <p class="part-aducation__title">Московский государственный университет инженерной экологии</p>
-              <p class="part-aducation__years">2005 - 2010г.г.</p>
-            </div>
-            <img class="part-aducation__section" src="img/section.png" alt="section">
-            <p class="part-aducation__specialty">Инженер проектировщик машин для химических производств</p>
-          </div>
-          <div class="part-aducation">
-            <div class="part-aducation__item">
-              <p class="part-aducation__title">SBA (Student of Business Administration) programme</p>
-              <p class="part-aducation__years">2013г.</p>
-            </div>
-            <img class="part-aducation__section" src="img/section.png" alt="section">
-            <p class="part-aducation__specialty">Ассоциация Менеджеров России, Маркетинг</p>
-          </div>
-          <div class="part-aducation">
-            <div class="part-aducation__item">
-              <p class="part-aducation__title">HTML Academy</p>
-              <p class="part-aducation__years">2019-2020г.г.</p>
-            </div>
-            <img class="part-aducation__section" src="img/section.png" alt="section">
-            <p class="part-aducation__specialty">Frontend-разработчик</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="resume-infomation__part">
-        <h3 class="part__title">Сертификаты</h3>
-        <div class="part__description">
-          <div class="part__sertificates">
-            <img class="sertificate-item" src="img/html.jpg" alt="sertificate of HTML/CSS 1 level">
-            <img class="sertificate-item" src="img/html2.jpg" alt="sertificate of HTML/CSS 2 level">
-            <img class="sertificate-item" src="img/js.jpg" alt="sertificate of JS">
-          </div>
-        </div>
-      </div>
-
     </div>
+  </header>
+    <div class="container">
+    <main class="main hidden">
+      <div class="personal-information">
+        <img class="personal-photo" src="img/my-photo.jpg" alt="my photo">
+        <div class="personal-description">
+          <div class="about-me">
+            <h3 class="about-me__title">Обо мне</h3>
+            <p class="about-me__description">
+              Добрый день! Давайте знакомиться.<br>
+              Мне 32 года.Родился 18.12.1987г.<br>
+              Есть успешный, учебный опыт верстки в HTML academy. Сейчас изучаю JS. Имею огромное желание развиваться в
+              Frontend, однако мало опыта в этом.
+              Готов рассмотреть варианты со стажеровкой, т.к. понимаю, что мой опыт совсем не большой, а даже
+              минимальный.
+            </p>
+          </div>
+        </div>
+        <div class="personal-description">
+          <div class="about-me">
+            <h3 class="about-me__title">Контакты</h3>
+            <div class="about-me__description">
+              <div class="contact">
+                <img class="contact-img" src="img/phone.svg" alt="phone">
+                <p class="contact-info">+7 (903) 754-00-89</p>
+              </div>
+              <div class="contact">
+                <img class="contact-img" src="img/mail.svg" alt="mail">
+                <p class="contact-info">nt66@bk.ru</p>
+              </div>
+              <div class="contact">
+                <img class="contact-img telegram-img" src="img/telegram.png" alt="telegram">
+                <p class="contact-info">@KLN1987</p>
+              </div>
+              <div class="contact">
+                <img class="contact-img github-img" src="img/github-logo.png" alt="github">
+                <p class="contact-info">github.com/KLN1987</p>
+              </div>
+              <div class="contact">
+                <a href="https://wa.me/79037540089" class="contact-info whatsapp-info"><img src="img/wts.png"
+                    alt="Написать в вотсап" class="whatsapp-info-img"></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="personal-description">
+          <div class="about-me">
+            <h3 class="about-me__title">Знание языков</h3>
+            <div class="about-me__description">
+              <img src="img/leaguage.png" class="about-me__lang lang-photo" alt="leaguage">
+            </div>
+          </div>
+        </div>
+        <div class="personal-description">
+          <div class="about-me">
+            <h3 class="about-me__title">Интересы</h3>
+            <div class="about-me__description">
+              <ul class="intresting-list">
+                <li class="intresting-item"><strong>Семья.</strong><br>Свободное время провожу семьей, у меня двое
+                  маленьких сыновей. Моя семья - это
+                  самое главное счастье.</li>
+                <li class="intresting-item">
+                  <strong>Футбол.</strong><br>Любимый клуб Спартак Москва, из зарубежных болею за Реал Мадрид.
+                  Три любимых футболиста: 1. Рауль 2. Дэвид Бэкхем 3. Франческо Тотти.
+                </li>
+                <li class="intresting-item"><strong>Единоборства.</strong><br>Долго и успешно занимался самбо и дзюдо
+                  (КМС). Сейчас занимаюсь, для поддержания формы в домашних
+                  условиях.</li>
+                <li class="intresting-item"><strong>Книги.</strong><br>Последнее прочитаное: Герман Гессе: &laquo;Игра в
+                  бисер&raquo;, Олег Романцев: &laquo;Правда обо мне и "Спартаке"&raquo;</li>
+                <li class="intresting-item"><strong>Путешествия.</strong><br>Люблю путешествовать по России, ровно
+                  также, как по всему миру.</li>
+              </ul>
 
+            </div>
+          </div>
+        </div>
+        <img class="logo" src="img/logo.png" alt="logo">
+      </div>
+
+
+      <div class="resume-infomation">
+        <div class="resume-infomation__title">
+          <h2 class="resume-infomation__name">Карпов Лев Николаевич</h2>
+          <p class="resume-infomation__position">Frontend-разработчик</p>
+        </div>
+        <div class="resume-infomation__part">
+          <h3 class="part__title">Hard Skills</h3>
+          <div class="part__description">
+            <img src="img/html_css_js.png" class="part-photo" alt="HTML, CSS, JS">
+            <img src="img/sass_less.png" class="part-photo photo-length" alt="Sass Less">
+            <img src="img/git.png" class="part-photo" alt="Git">
+            <img src="img/avocode.png" class="part-photo" alt="Avacode">
+            <img src="img/figma.png" class="part-photo" alt="Figma">
+            <img src="img/ps.png" class="part-photo" alt="Photoshop">
+            <img src="img/kbr_adap.png" class="part-photo photo-length" alt="Adaptive Cross-browser">
+            <img src="img/gulp.png" class="part-photo" alt="Gulp">
+            <img src="img/github.png" class="part-photo photo-length" alt="GitHub">
+          </div>
+        </div>
+        <div class="resume-infomation__part">
+          <h3 class="part__title">Soft Skills</h3>
+          <div class="part__description">
+            <img src="img/cooperation.png" class="part-photo__soft" alt="team">
+            <img src="img/communicate.png" class="part-photo__soft" alt="communicate">
+            <img src="img/listener.png" class="part-photo__soft" alt="listener">
+            <img src="img/speech.png" class="part-photo__soft" alt="speech">
+            <img src="img/respect.png" class="part-photo__soft" alt="respect">
+            <img src="img/leadership.png" class="part-photo__soft" alt="leadership">
+            <img src="img/creative.png" class="part-photo__soft" alt="creative">
+            <img src="img/humor.png" class="part-photo__soft" alt="humor">
+          </div>
+        </div>
+        <div class="resume-infomation__part">
+          <h3 class="part__title">Образование</h3>
+          <div class="part__description">
+            <div class="part-aducation">
+              <div class="part-aducation__item">
+                <p class="part-aducation__title">Московский государственный университет инженерной экологии</p>
+                <p class="part-aducation__years">2005 - 2010г.г.</p>
+              </div>
+              <img class="part-aducation__section" src="img/section.png" alt="section">
+              <p class="part-aducation__specialty">Инженер проектировщик машин для химических производств</p>
+            </div>
+            <div class="part-aducation">
+              <div class="part-aducation__item">
+                <p class="part-aducation__title">SBA (Student of Business Administration) programme</p>
+                <p class="part-aducation__years">2013г.</p>
+              </div>
+              <img class="part-aducation__section" src="img/section.png" alt="section">
+              <p class="part-aducation__specialty">Ассоциация Менеджеров России, Маркетинг</p>
+            </div>
+            <div class="part-aducation">
+              <div class="part-aducation__item">
+                <p class="part-aducation__title">HTML Academy</p>
+                <p class="part-aducation__years">2019-2020г.г.</p>
+              </div>
+              <img class="part-aducation__section" src="img/section.png" alt="section">
+              <p class="part-aducation__specialty">Frontend-разработчик</p>
+            </div>
+          </div>
+        </div>
+        <div class="resume-infomation__part">
+          <h3 class="part__title">Сертификаты</h3>
+          <div class="part__description">
+            <div class="part__sertificates">
+              <img class="sertificate-item" src="img/html.jpg" alt="sertificate of HTML/CSS 1 level">
+              <img class="sertificate-item" src="img/html2.jpg" alt="sertificate of HTML/CSS 2 level">
+              <img class="sertificate-item" src="img/js.jpg" alt="sertificate of JS">
+            </div>
+          </div>
+        </div>
+        <div class="resume-infomation__part">
+          <h3 class="part__title">Мои работы</h3>
+          <div class="part__description">
+            <div class="part-aducation">
+              <div class="part-aducation__item">
+                <img class="work-photo" src="img/sedona.png" alt="Сайт Седона">
+              </div>
+              <img class="part-aducation__section" src="img/section.png" alt="section">
+              <div class="part-aducation__description">
+                <p class="part-aducation__specialty">Учебный проект. Защитил на 100%. Кроссбраузерна и адаптивная
+                  верстка многостраничного сайта, по макету psd, с использованием Avacode.
+                  Работа производилась с применением препроцессора LESS, сборщика Gulp, с применением БЭМ, Flexbox и
+                  PerfectPixel</p>
+                <a href="https://github.com/KLN1987/1072713-sedona-18" type="button" class="work-btn">Открыть
+                  репозиторий</a>
+              </div>
+            </div>
+            <div class="part-aducation">
+              <div class="part-aducation__item">
+                <img class="work-photo" src="img/delivery.png" alt="Сайт Delivery-food">
+              </div>
+              <img class="part-aducation__section" src="img/section.png" alt="section">
+              <div class="part-aducation__description">
+                <p class="part-aducation__specialty">Учебный проект. Адаптивная верстка, с применением Flexbox, по
+                  макету из Figma. Использовался чистый JavaScript, для регистрации на сайте,
+                  формирований карточек товаров ресторанов, реализован поиск блюд, корзина с товароми и калькулятором.
+                  Информация о заказе записывается Local Storage.</p>
+                <a href="https://github.com/KLN1987/1072713-sedona-18" type="button" class="work-btn">Открыть
+                  репозиторий</a>
+                <a href="https://kln1987.github.io/delivery_food_js/" type="button" class="work-btn">Открыть
+                  страницу</a>
+              </div>
+            </div>
+            <div class="part-aducation">
+              <div class="part-aducation__item">
+                <img class="work-photo" src="img/star_wars.png" alt="Сайт Star Wars">
+              </div>
+              <img class="part-aducation__section" src="img/section.png" alt="section">
+              <div class="part-aducation__description">
+                <p class="part-aducation__specialty">Учебный проект. Адаптивная верстка, с применением Flexbox, jQuery,
+                  по макету из Figma. Слайдер реализован при помощи Owl Carousel.
+                  Реализовано открытие видео с YouTube при помощи FancyBox.</p>
+                <a href="https://github.com/KLN1987/1072713-sedona-18" type="button" class="work-btn">Открыть
+                  репозиторий</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <main>
   </div>
 
   <script src="js/game.js"></script>

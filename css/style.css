@@ -19,11 +19,13 @@ a {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  max-width: 1200px;
+  margin: auto;
 }
 
 .container-cvs {
   position: relative;
-  /*max-width: 1200px;*/
+  width: 1200px;
   margin: 0 auto;
 }
 
@@ -32,27 +34,26 @@ canvas {
   margin: 0 auto;
 }
 
-/*button {
-  display: block;
-  margin: 0 auto;
-  background: blue;
-  margin-bottom: 15px;
-}*/
+.rules {
+  margin-bottom: 20px;
+}
+
+.rules-item {
+  margin-bottom: 10px;
+}
 
 .resume,
 .game {
   position: relative;
   display: block;
-
   background: none;
   outline: none;
   border: none;
   padding: 0;
   cursor: pointer;
-
   color: #eee;
   text-transform: uppercase;
-  font-weight: 700;
+  font-weight: 400;
   letter-spacing: .05em;
   margin: 0 auto;
   margin-bottom: 20px;
@@ -112,8 +113,7 @@ canvas {
 .goalkeeper,
 .mark,
 .title {
-  display: block;
-  margin: -600px auto 0;
+  margin: -600px auto;
 }
 
 .hidden {
@@ -198,6 +198,11 @@ canvas {
   font-size: 20px;
 }
 
+.logo {
+  width: 100%;
+  margin-top: 100px;
+}
+
 .sertificate-photo {
   display: block;
   width: 300px;
@@ -246,7 +251,8 @@ canvas {
   align-items: center;
 }
 
-.contact-info {
+.contact-info,
+.contact-link {
   font-size: 20px;
   font-family: 'Roboto', sans-serif;
   margin-left: 30px;
@@ -260,22 +266,35 @@ canvas {
   overflow: hidden;
 }
 
-.whatsapp-info {
+.contact__img {
+  width: 21px;
+  height: 21px;
+  overflow: hidden;
+}
+
+.whatsapp-info,
+.whatsapp-link {
   display: inline-block;
-  background: url('../img/wts.png') no-repeat 0 0;
   width: 200px;
   height: 100px;
   overflow: hidden;
 }
 
-.work-photo {
+.whatsapp-info-img {
+  width: 100%;
+  height: auto;
+}
+
+.work-photo,
+.work__photo {
   width: 100%;
   overflow: hidden;
   height: 200px;
   padding-top: 10px;
 }
 
-.work-info {
+.work-info,
+.work__info {
   text-align: center;
   font-weight: 600;
   font-family: 'Roboto', sans-serif;
@@ -288,6 +307,8 @@ canvas {
   padding: 10px;
   text-transform: uppercase;
   text-decoration: none;
+  font-size: 12px;
+  text-align: center;
   color: #000;
   background: #fff;
   border-radius: 25px;
@@ -333,8 +354,12 @@ canvas {
   width:100%;
 }
 
-.main {
+.container {
+  margin: 0 auto;
   max-width: 1200px;
+}
+
+.main {
   box-shadow: 0 4px 6px rgba(122,122,122,.5);
   margin: 0 auto;
   display: flex;
@@ -363,6 +388,7 @@ canvas {
 }
 
 .about-me__description {
+  font-size: 18px;
   border-top: 2px solid #DCDCDC;
   margin: 0;
   padding-top: 10px;
@@ -418,14 +444,22 @@ canvas {
   width: 100%;
 }
 
-.part-aducation__item,
-.part-aducation__specialty {
-  width: 50%;
+.part-aducation__description {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.part-aducation__description .part-aducation__specialty {
+  width: 100%;
+  margin-bottom: 15px;
 }
 
 .part-aducation__item,
-.part-aducation__specialty {
+.part-aducation__specialty,
+.part-aducation__description {
   padding-top: 10px;
+  width: 50%;
 }
 
 .part-aducation__title,
@@ -445,4 +479,148 @@ canvas {
 .sertificate-item {
   width: 30%;
 }
-.
+
+.intresting-item {
+  margin-bottom: 15px;
+  font-size: 18px;
+}
+
+@media (max-width: 1000px) {
+  .container {
+    max-width: 750px;
+  }
+
+  .header {
+    max-width: 750px;
+  }
+
+  .resume-infomation {
+    padding: 20px 20px;
+  }
+
+  .contact-info {
+    font-size: 14px;
+  }
+
+  .whatsapp-info {
+    width: 120px;
+    height: 70px;
+  }
+
+  .part-photo__soft {
+    width: 30px;
+    height: 30px;
+  }
+  .part-aducation {
+    font-size: 14px;
+  }
+
+  .part-photo {
+    width: 70px;
+    height: 70px;
+  }
+  .photo-length {
+    width: 200px;
+  }
+  .work-photo {
+    height: 150px;
+  }
+  .part-aducation__item {
+    padding: 0;
+    align-self: center;
+  }
+  .part-aducation__description {
+    padding-top: 15px;
+  }
+  .intresting-item {
+    font-size: 16px;
+  }
+  .about-me__description {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 780px) {
+  .container {
+    max-width: 680px;
+  }
+  .contact-info {
+    margin-left: 15px;
+  }
+  .contact-img {
+    width: 15px;
+    height: 15px;
+  }
+  .intresting-item {
+    font-size: 14px;
+  }
+  .work-btn {
+    font-size: 10px;
+  }
+}
+
+@media (max-width: 690px) {
+  .container {
+    max-width: 320px;
+  }
+   .main {
+     flex-direction: column;
+   }
+   .personal-information {
+     width: 100%;
+   }
+   .contact-info {
+     font-size: 18px;
+     margin-left: 20px;
+   }
+   .contact-img {
+     width: 21px;
+     height: 21px;
+   }
+   .whatsapp-info {
+     width: 250px;
+     height: 100px;
+   }
+   .whatsapp-info-img {
+     height: 100px;
+   }
+   .intresting-item {
+     font-size: 16px;
+   }
+   .resume-infomation {
+     width: 100%;
+   }
+   .resume-infomation__title {
+     font-size: 27px;
+   }
+   .part-aducation {
+     margin-bottom: 20px;
+   }
+   .part-aducation__title,
+   .part-aducation__years {
+     font-size: 12px;
+   }
+   .part-aducation__specialty {
+     padding: 0;
+   }
+   .part-aducation__section {
+     width: 50px;
+   }
+  .work-btn {
+    font-size: 8px;
+  }
+  .part-aducation__specialty {
+    font-size: 12px;
+  }
+  .work-photo {
+    height: 100px;
+  }
+  .logo {
+    width: 90%;
+    margin-top: 50px;
+  }
+
+  .rules-item {
+    font-size: 12px;
+  }
+}

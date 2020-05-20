@@ -3,12 +3,12 @@ window.onload = init;
 
 // объявдяем переменные
 var container;
-var headerTitle;
-var body;
 var containerCard;
 var card;
 var cardClose;
 var header;
+var main;
+var rules;
 
 var card;
 
@@ -58,14 +58,13 @@ var requestAnimFrame = window.requestAnimationFrame || window.webkitRequestAnima
   window.mozRequestAnimationFrame || window.oRequestAnimationFrame ||
   window.msRequestAnimationFrame;
 
-
 //игра
 function init() {
   container = document.querySelector('.container-cvs');
-  headerTitle = document.querySelector('.header__title');
-  body = document.querySelector('body');
+  rules = document.querySelector('.rules');
   containerCard = document.querySelector('.container-card');
   header = document.querySelector('.header');
+  main = document.querySelector('.main');
 
   map = document.querySelector('.map');
   ctxMap = map.getContext('2d');
@@ -103,11 +102,8 @@ function init() {
 
   document.addEventListener('keydown', checkKeyDown);
   document.addEventListener('keyup', checkKeyUp);
-  //document.addEventListener('mousemove', mouseMove);
-  ball.addEventListener('click', mouseClick);
-  //document.addEventListener('click', mouseMove);
-  document.addEventListener('mousedown', ballMove);
-  ball.addEventListener('touchmove', ballTouch);
+  document.addEventListener('mousemove', mouseMove);
+  ball.addEventListener('click', mouseClick);;
 
   player = new Player();
   goalkeeper = new Goalkeeper();
@@ -118,67 +114,19 @@ function init() {
   updateTitles();
 
 }
-//движение мыши 
-function ballMove (evt) {
-  evt.preventDefault();
-  mouseX = evt.pageX;
-  mouseY = evt.pageY; 
-
-  function mouseMove(evtMove) {
-    evtMove.preventDefault();
-    mouseX = evtMove.pageX - container.offsetLeft;
-    mouseY = evtMove.pageY - container.offsetTop;
-    player.drawX = mouseX - player.width/2;
-    player.drawY = mouseY - player.height/2;
-  }
-
-  function mouseUp(upEvt) {
-    upEvt.preventDefault();
-
-    document.removeEventListener('mousemove', mouseMove);
-    document.removeEventListener('mouseup', mouseUp);
-  };
-  document.addEventListener('mousemove', mouseMove);
-  document.addEventListener('mouseup', mouseUp);
-} 
-//touch screen
-function ballTouch (evt) {
-  evt.preventDefault();
-  mouseX = evt.pageX;
-  mouseY = evt.pageY; 
-
-  function touchMove(evtMove) {
-    evtMove.preventDefault();
-    mouseX = evtMove.pageX - container.offsetLeft;
-    mouseY = evtMove.pageY - container.offsetTop;
-    player.drawX = mouseX - player.width/2;
-    player.drawY = mouseY - player.height/2;
-  }
-
-  function touchUp(upEvt) {
-    upEvt.preventDefault();
-
-    document.removeEventListener('touchmove', touchMove);
-    document.removeEventListener('touchend', touchUp);
-  };
-  document.addEventListener('touchmove', touchMove);
-  document.addEventListener('touchend', touchUp);
-} 
 
 //движение мыши 
-/*function mouseMove(evt) {
+function mouseMove(evt) {
+
   mouseX = evt.pageX - container.offsetLeft;
   mouseY = evt.pageY - container.offsetTop;
-  player.drawX = mouseX - player.width/2;
-  player.drawY = mouseY - player.height/2;
-  console.log(map.offsetLeft);
-};*/
+};
 
 //клик мыши
  function mouseClick(evt) {
-    evt.preventDefault();
-    player.drawX = mouseX - player.width - 15;
-    player.drawY = mouseY - player.height - 130;
+   console.log(mouseX);
+    player.drawX = mouseX - player.width/2;
+    player.drawY = mouseY - player.height/2;
 };
 
 //движение мяча
@@ -330,22 +278,22 @@ Mark.prototype.draw = function () {
             <a href="https://github.com/KLN1987/" class="contact-info">github.com/KLN1987</a>
           </div>
           <div class="card-description works">
-            <img class="work-photo" src="img/sedona.png" alt="Сайт Седона">
-            <p class="work-info">Учебный проект. Защитил на 100%. Кроссбраузерна и адаптивная верстка многостраничного сайта, по макету psd, с использованием Avacode.
+            <img class="work__photo" src="img/sedona.png" alt="Сайт Седона">
+            <p class="work__info">Учебный проект. Защитил на 100%. Кроссбраузерна и адаптивная верстка многостраничного сайта, по макету psd, с использованием Avacode.
               Работа производилась с применением препроцессора LESS, сборщика Gulp, с применением БЭМ, Flexbox и PerfectPixel</p>
             <a href="https://github.com/KLN1987/1072713-sedona-18" type="button" class="work-btn">Открыть репозиторий</a> 
           </div>
           <div class="card-description works">
-            <img class="work-photo" src="img/delivery.png" alt="Сайт Delivery-food">
-            <p class="work-info">Учебный проект. Адаптивная верстка, с применением Flexbox, по макету из Figma. Использовался чистый JavaScript, для регистрации на сайте,
+            <img class="work__photo" src="img/delivery.png" alt="Сайт Delivery-food">
+            <p class="work__info">Учебный проект. Адаптивная верстка, с применением Flexbox, по макету из Figma. Использовался чистый JavaScript, для регистрации на сайте,
               формирований карточек товаров ресторанов, реализован поиск блюд, корзина с товароми и калькулятором. Информация о заказе записывается Local Storage.
             </p>
             <a href="https://github.com/KLN1987/delivery_food_js/" type="button" class="work-btn">Открыть репозиторий</a> 
             <a href="https://kln1987.github.io/delivery_food_js/" type="button" class="work-btn">Открыть страницу</a> 
           </div>
           <div class="card-description works">
-            <img class="work-photo" src="img/star_wars.png" alt="Сайт Star Wars">
-            <p class="work-info">Учебный проект. Адаптивная верстка, с применением Flexbox, jQuery, по макету из Figma. Слайдер реализован при помощи Owl Carousel. 
+            <img class="work__photo" src="img/star_wars.png" alt="Сайт Star Wars">
+            <p class="work__info">Учебный проект. Адаптивная верстка, с применением Flexbox, jQuery, по макету из Figma. Слайдер реализован при помощи Owl Carousel. 
               Реализовано открытие видео с YouTube при помощи FancyBox.
             </p>
             <a href="https://github.com/KLN1987/Star-Wars" type="button" class="work-btn">Открыть репозиторий</a> 
@@ -369,23 +317,23 @@ Mark.prototype.draw = function () {
       </div>
       <div class="card-description">
         <div class="contact">
-          <img class="contact-img" src="img/phone.svg" alt="phone">
-          <p class="contact-info">+7 (903) 754-00-89</p>
+          <img class="contact__img" src="img/phone.svg" alt="phone">
+          <p class="contact-link">+7 (903) 754-00-89</p>
         </div>
         <div class="contact">
-          <img class="contact-img" src="img/mail.svg" alt="mail">
-          <p class="contact-info">nt66@bk.ru</p>
+          <img class="contact__img" src="img/mail.svg" alt="mail">
+          <p class="contact-link">nt66@bk.ru</p>
         </div>
         <div class="contact">
-          <img class="contact-img telegram-img" src="img/telegram.png" alt="telegram">
-          <p class="contact-info">@KLN1987</p>
+          <img class="contact__img" src="img/telegram.png" alt="telegram">
+          <p class="contact-link">@KLN1987</p>
         </div>
         <div class="contact">
-          <img class="contact-img github-img" src="img/github-logo.png" alt="github">
-          <p class="contact-info">github.com/KLN1987</p>
+          <img class="contact__img" src="img/github-logo.png" alt="github">
+          <p class="contact-link">github.com/KLN1987</p>
         </div>
         <div class="contact">
-          <a href="https://wa.me/79037540089" class="contact-info whatsapp-info"></a>
+          <a href="https://wa.me/79037540089" class="contact-link whatsapp-link"><img src="img/wts.png" alt="Написать в вотсап" class="whatsapp-info-img"></a>
         </div>
       </div>
       </div>
@@ -535,14 +483,16 @@ function openResume() {
   container.classList.add('hidden');
   resume.classList.add('hidden');
   game.classList.remove('hidden');
-  headerTitle.classList.add('hidden');
+  main.classList.remove('hidden');
+  rules.classList.add('hidden');
 };
 //отрывает игру
 function openGame() {
   container.classList.remove('hidden');
   resume.classList.remove('hidden');
   game.classList.add('hidden');
-  headerTitle.classList.remove('hidden');
+  main.classList.add('hidden');
+  rules.classList.remove('hidden');
 }
 // закрывате информацию из резюме в игре
 function closeCard() {
