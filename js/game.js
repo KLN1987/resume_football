@@ -9,6 +9,7 @@ var cardClose;
 var header;
 var main;
 var rules;
+var canvas;
 
 var card;
 
@@ -65,6 +66,7 @@ function init() {
   containerCard = document.querySelector('.container-card');
   header = document.querySelector('.header');
   main = document.querySelector('.main');
+  canvas = document.querySelectorAll('canvas');
 
   map = document.querySelector('.map');
   ctxMap = map.getContext('2d');
@@ -485,6 +487,13 @@ function openResume() {
   game.classList.remove('hidden');
   main.classList.remove('hidden');
   rules.classList.add('hidden');
+ /* mark.classList.add('hidden');
+  title.classList.add('hidden');
+  ball.classList.add('hidden');*/
+  for (var i = 0; i < canvas.length; i++) {
+    canvas[i].width = 0;
+    canvas[i].height = 0;
+  }
 };
 //отрывает игру
 function openGame() {
@@ -493,6 +502,11 @@ function openGame() {
   game.classList.add('hidden');
   main.classList.add('hidden');
   rules.classList.remove('hidden');
+  for (var i = 0; i < canvas.length; i++) {
+    canvas[i].width = 1200;
+    canvas[i].height = 600;
+  }
+  drawBg();
 }
 // закрывате информацию из резюме в игре
 function closeCard() {

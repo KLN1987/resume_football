@@ -547,6 +547,9 @@ canvas {
   .container {
     max-width: 680px;
   }
+  .header {
+    max-width: 680px;
+  }
   .contact-info {
     margin-left: 15px;
   }
@@ -564,6 +567,9 @@ canvas {
 
 @media (max-width: 690px) {
   .container {
+    max-width: 320px;
+  }
+  .header {
     max-width: 320px;
   }
    .main {
@@ -619,11 +625,20 @@ canvas {
     height: 100px;
   }
   .logo {
-    width: 90%;
+    width: 100%;
     margin-top: 50px;
   }
-
   .rules-item {
     font-size: 12px;
+  }
+
+  .part__sertificates {
+    flex-direction: column;
+  }
+
+  .sertificate-item {
+    width: 100%;
+    height: 300px;
+    margin-bottom: 10px;
   }
 }
