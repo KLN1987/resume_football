@@ -104,8 +104,10 @@ function init() {
 
   document.addEventListener('keydown', checkKeyDown);
   document.addEventListener('keyup', checkKeyUp);
-  document.addEventListener('mousemove', mouseMove);
-  ball.addEventListener('click', mouseClick);;
+  //container.addEventListener('mousemove', mouseMove);
+  //ball.addEventListener('click', mouseClick);
+  container.addEventListener('mousedown', ballMove);
+  container.addEventListener('touchstart', ballTouch);
 
   player = new Player();
   goalkeeper = new Goalkeeper();
@@ -114,22 +116,80 @@ function init() {
   drawBg();
   startLoop();
   updateTitles();
-
 }
-
+/*
 //движение мыши 
 function mouseMove(evt) {
 
   mouseX = evt.pageX - container.offsetLeft;
   mouseY = evt.pageY - container.offsetTop;
-};
 
-//клик мыши
- function mouseClick(evt) {
-   console.log(mouseX);
+  player.drawX = mouseX - player.width/2;
+  player.drawY = mouseY - player.height/2;
+};*/
+
+ function ballMove(evt) {
+  evt.preventDefault();
+  mouseX = evt.pageX;
+  mouseY = evt.pageY;
+
+  var onMouseMove = function (moveEvt) {
+    moveEvt.preventDefault();
+
+    mouseX = moveEvt.pageX - container.offsetLeft;
+    mouseY = moveEvt.pageY - container.offsetTop;
+  
     player.drawX = mouseX - player.width/2;
     player.drawY = mouseY - player.height/2;
+
+  };
+
+ function onMouseUp(upEvt) {
+    upEvt.preventDefault();
+
+
+    container.removeEventListener('mousemove', onMouseMove);
+    container.removeEventListener('mouseup', onMouseUp);
+  };
+
+  container.addEventListener('mousemove', onMouseMove);
+  container.addEventListener('mouseup', onMouseUp);
 };
+
+function ballTouch(evt) {
+  evt.preventDefault();
+  mouseX = evt.pageX;
+  mouseY = evt.pageY;
+
+  var onTouchMove = function (moveEvt) {
+    moveEvt.preventDefault();
+
+    mouseX = moveEvt.pageX - container.offsetLeft;
+    mouseY = moveEvt.pageY - container.offsetTop;
+  
+    player.drawX = mouseX - player.width/2;
+    player.drawY = mouseY - player.height/2;
+
+  };
+
+ function onTouchUp(upEvt) {
+    upEvt.preventDefault();
+
+
+    container.removeEventListener('touchmove', onTouchMove);
+    container.removeEventListener('touchend', onTouchUp);
+  };
+
+  container.addEventListener('touchmove', onTouchMove);
+  container.addEventListener('touchend', onTouchUp);
+};
+
+/*
+//клик мыши
+ function mouseClick(evt) {
+    player.drawX = mouseX - player.width/2;
+    player.drawY = mouseY - player.height/2;
+};*/
 
 //движение мяча
 function loop() {
@@ -159,7 +219,6 @@ function draw() {
 function update() {
   player.boom();
   player.update();
-  //player.boom();
 }
 
 // функция с данными про объект, которым играем(мяч)

@@ -563,6 +563,9 @@ canvas {
   .work-btn {
     font-size: 10px;
   }
+  .header__img {
+    width: 100%;
+  }
 }
 
 @media (max-width: 690px) {
@@ -637,7 +640,7 @@ canvas {
   }
 
   .sertificate-item {
-    width: 100%;
+    width: 90%;
     height: 300px;
     margin-bottom: 10px;
   }
