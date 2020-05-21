@@ -52,6 +52,12 @@ var isPlaying;
 var mouseX;
 var mouseY;
 
+var tarWidth;
+var tarHeight;
+var tarX;
+var tarY;
+var touch;
+
 var mouseControl = false;
 
 // поддержка браузеров
@@ -105,12 +111,12 @@ function init() {
   document.addEventListener('keydown', checkKeyDown);
   document.addEventListener('keyup', checkKeyUp);
   //container.addEventListener('mousemove', mouseMove);
-  //ball.addEventListener('click', mouseClick);
   container.addEventListener('mousedown', ballMove);
+  ball.addEventListener('click', mouseClick);
   // container.addEventListener('touchstart', ballTouch);
-  ball.addEventListener('touchstart', startTouch);
-  ball.addEventListener('touchmove', moveTouch);
-  ball.addEventListener('touchend', endTouch);
+  //ball.addEventListener('touchstart', startTouch);
+  //ball.addEventListener('touchmove', moveTouch);
+  //ball.addEventListener('touchend', endTouch);
 
 
   player = new Player();
@@ -121,15 +127,17 @@ function init() {
   startLoop();
   updateTitles();
 }
-/*
+
 //движение мыши 
-function mouseMove(evt) {
+/*function mouseMove(evt) {
 
   mouseX = evt.pageX - container.offsetLeft;
   mouseY = evt.pageY - container.offsetTop;
 
-  player.drawX = mouseX - player.width/2;
-  player.drawY = mouseY - player.height/2;
+  console.log(mouseX);
+
+  //player.drawX = mouseX - player.width/2;
+  //player.drawY = mouseY - player.height/2;
 };*/
 
  function ballMove(evt) {
@@ -146,11 +154,16 @@ function mouseMove(evt) {
     player.drawX = mouseX - player.width/2;
     player.drawY = mouseY - player.height/2;
 
+    console.log(mouseX);
+    console.log(mouseY);
+
   };
 
  function onMouseUp(upEvt) {
     upEvt.preventDefault();
 
+    player.drawX = mouseX - player.height/2;
+    player.drawY = mouseY - player.width/2;
 
     container.removeEventListener('mousemove', onMouseMove);
     container.removeEventListener('mouseup', onMouseUp);
@@ -160,44 +173,16 @@ function mouseMove(evt) {
   container.addEventListener('mouseup', onMouseUp);
 };
 
-/*function ballTouch(evt) {
-  evt.preventDefault();
-  mouseX = evt.pageX;
-  mouseY = evt.pageY;
 
-  var onTouchMove = function (moveEvt) {
-    moveEvt.preventDefault();
-
-    mouseX = moveEvt.pageX - container.offsetLeft;
-    mouseY = moveEvt.pageY - container.offsetTop;
-  
-    player.drawX = mouseX - player.width/2;
-    player.drawY = mouseY - player.height/2;
-
-  };
-
- function onTouchUp(upEvt) {
-    // upEvt.preventDefault();
-
-
-    container.removeEventListener('touchmove', onTouchMove);
-    container.removeEventListener('touchend', onTouchUp);
-  };
-
-  container.addEventListener('touchmove', onTouchMove);
-  container.addEventListener('touchend', onTouchUp);
-};*/
-
-/*
 //клик мыши
- function mouseClick(evt) {
-    player.drawX = mouseX - player.width/2;
-    player.drawY = mouseY - player.height/2;
-};*/
-
+function mouseClick(evt) {
+    player.drawX = (evt.pageX - container.offsetLeft) - player.width/2;
+    player.drawY = (evt.pageY - container.offsetTop) - player.height/2;
+};
+/*
 function startTouch (event) {
   if (event.targetTouches.length == 1) {
-  var touch = event.targetTouches[0];
+  touch = event.targetTouches[0];
   touchOffsetX = touch.pageX - touch.target.offsetLeft;
   touchOffsetY = touch.pageY - touch.target.offsetTop;
   }
@@ -205,27 +190,27 @@ function startTouch (event) {
 
 function moveTouch(event) {
   if (event.targetTouches.length == 1) {
-  var touch = event.targetTouches[0];
-  ball.style.left = touch.pageX-touchOffsetX + 'px';
-  ball.style.top = touch.pageY-touchOffsetY + 'px';
+  touch = event.targetTouches[0];
+  player.drawX = touch.pageX - touchOffsetX + 'px';
+  player.drawY = touch.pageY - touchOffsetY + 'px';
   }
 }
 
 function endTouch (event) {
   if (event.changedTouches.length == 1) {
-  var tarWidth=container.offsetWidth;
-  var tarHeight=container.offsetHeight;
-  var tarX=container.offsetLeft;
-  var tarY=container.offsetTop;
+  tarWidth = container.offsetWidth;
+  tarHeight = container.offsetHeight;
+  tarX = container.offsetLeft;
+  tarY = container.offsetTop;
   if(
   (event.changedTouches[0].pageX > tarX) &&
   (event.changedTouches[0].pageX < (tarX + tarWidth)) &&
   (event.changedTouches[0].pageY > tarY) &&
   (event.changedTouches[0].pageY < (tarY + tarHeight))){
-  /*Мы над объектом tarobj*/
+  /*Мы над объектом tarobj
   }
 } 
-}
+}*/
 
 //движение мяча
 function loop() {

@@ -6,6 +6,7 @@
 
 body {
   font-style: 'Roboto', sans-serif;
+  /*cursor: pointer;*/
 }
 
 a {
@@ -478,6 +479,7 @@ canvas {
 .part__sertificates {
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 .sertificate-item {
   width: 30%;
@@ -632,7 +634,7 @@ canvas {
     margin-top: 50px;
   }
   .rules-item {
-    font-size: 12px;
+    font-size: 14px;
   }
 
   .part__sertificates {
