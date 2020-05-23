@@ -590,6 +590,8 @@ function openGame() {
 // закрывате информацию из резюме в игре
 function closeCard() {
   containerCard.style.display='none';
+  player.drawX = STAR_COORD_BALL_X;
+  player.drawY = STAR_COORD_BALL_Y;
 }
 // надписи в игре
 function updateTitles() {
