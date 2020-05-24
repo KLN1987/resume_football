@@ -160,6 +160,7 @@ canvas {
   justify-content: space-between;
   position: sticky;
   top: 0;
+  background-color: inherit;
 }
 
 .card-title {
