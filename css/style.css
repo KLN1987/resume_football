@@ -1,11 +1,14 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+@font-face {
+  font-family: 'Roboto';
+  src: url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+ }
 
 * {
   box-sizing: border-box;
 }
 
 body {
-  font-style: 'Roboto', sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 
 a {
@@ -389,7 +392,6 @@ canvas {
 .part__title {
   color: rgb(92, 162, 219);
   margin-bottom: 5px;
-  font-weight: 'Roboto', sans-serif;
   font-size: 24px;
 }
 
@@ -398,7 +400,6 @@ canvas {
   border-top: 2px solid #DCDCDC;
   margin: 0;
   padding-top: 10px;
-  font-weight: 'Roboto', sans-serif;
 }
 
 .resume-infomation {
@@ -410,7 +411,6 @@ canvas {
 
 .resume-infomation__title {
   font-size: 32px;
-  font-weight: 'Roboto', sans-serif;
 }
 
 .part__description {
