@@ -63,7 +63,7 @@ var mouseControl = false;
 // поддержка браузеров
 var requestAnimFrame = window.requestAnimationFrame || window.webkitRequestAnimationFrame ||
   window.mozRequestAnimationFrame || window.oRequestAnimationFrame ||
-  window.msRequestAnimationFrame;
+  window.msRequestAnimationFrame; 
 
 //игра
 function init() {
@@ -110,14 +110,9 @@ function init() {
 
   document.addEventListener('keydown', checkKeyDown);
   document.addEventListener('keyup', checkKeyUp);
-  //container.addEventListener('mousemove', mouseMove);
+
   container.addEventListener('mousedown', ballMove);
   ball.addEventListener('click', mouseClick);
-  // container.addEventListener('touchstart', ballTouch);
-  //ball.addEventListener('touchstart', startTouch);
-  //ball.addEventListener('touchmove', moveTouch);
-  //ball.addEventListener('touchend', endTouch);
-
 
   player = new Player();
   goalkeeper = new Goalkeeper();
@@ -127,18 +122,6 @@ function init() {
   startLoop();
   updateTitles();
 }
-
-//движение мыши 
-/*function mouseMove(evt) {
-
-  mouseX = evt.pageX - container.offsetLeft;
-  mouseY = evt.pageY - container.offsetTop;
-
-  console.log(mouseX);
-
-  //player.drawX = mouseX - player.width/2;
-  //player.drawY = mouseY - player.height/2;
-};*/
 
  function ballMove(evt) {
   evt.preventDefault();
@@ -152,10 +135,7 @@ function init() {
     mouseY = moveEvt.pageY - container.offsetTop;
   
     player.drawX = mouseX - player.width/2;
-    player.drawY = mouseY - player.height/2;
-
-    console.log(mouseX);
-    console.log(mouseY);
+    player.drawY = mouseY - player.height/2
 
   };
 
@@ -179,38 +159,6 @@ function mouseClick(evt) {
     player.drawX = (evt.pageX - container.offsetLeft) - player.width/2;
     player.drawY = (evt.pageY - container.offsetTop) - player.height/2;
 };
-/*
-function startTouch (event) {
-  if (event.targetTouches.length == 1) {
-  touch = event.targetTouches[0];
-  touchOffsetX = touch.pageX - touch.target.offsetLeft;
-  touchOffsetY = touch.pageY - touch.target.offsetTop;
-  }
-}
-
-function moveTouch(event) {
-  if (event.targetTouches.length == 1) {
-  touch = event.targetTouches[0];
-  player.drawX = touch.pageX - touchOffsetX + 'px';
-  player.drawY = touch.pageY - touchOffsetY + 'px';
-  }
-}
-
-function endTouch (event) {
-  if (event.changedTouches.length == 1) {
-  tarWidth = container.offsetWidth;
-  tarHeight = container.offsetHeight;
-  tarX = container.offsetLeft;
-  tarY = container.offsetTop;
-  if(
-  (event.changedTouches[0].pageX > tarX) &&
-  (event.changedTouches[0].pageX < (tarX + tarWidth)) &&
-  (event.changedTouches[0].pageY > tarY) &&
-  (event.changedTouches[0].pageY < (tarY + tarHeight))){
-  /*Мы над объектом tarobj
-  }
-} 
-}*/
 
 //движение мяча
 function loop() {
@@ -563,12 +511,10 @@ function clearCtxBall() {
 function openResume() {
   container.classList.add('hidden');
   resume.classList.add('hidden');
+  main.classList.add('animate');
   game.classList.remove('hidden');
   main.classList.remove('hidden');
   rules.classList.add('hidden');
- /* mark.classList.add('hidden');
-  title.classList.add('hidden');
-  ball.classList.add('hidden');*/
   for (var i = 0; i < canvas.length; i++) {
     canvas[i].width = 0;
     canvas[i].height = 0;
@@ -578,6 +524,7 @@ function openResume() {
 function openGame() {
   container.classList.remove('hidden');
   resume.classList.remove('hidden');
+  main.classList.remove('animate');
   game.classList.add('hidden');
   main.classList.add('hidden');
   rules.classList.remove('hidden');
@@ -614,3 +561,5 @@ function drawBg() {
   ctxMap.drawImage(bgGame, 0, 0, 600, 400, //размеры картинки
     0, 0, GAME_WIDTH, GAME_HEIGHT);//размеры на которые надо растянуть
 };
+
+new WOW().init();

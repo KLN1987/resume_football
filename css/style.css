@@ -3,6 +3,11 @@
   src: url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
  }
 
+@-webkit-keyframes fade-in {   0% { opacity: 0; }   100% { opacity: 1; }   }
+@-moz-keyframes    fade-in {   0% { opacity: 0; }   100% { opacity: 1; }   }
+@-o-keyframes      fade-in {   0% { opacity: 0; }   100% { opacity: 1; }   }
+@keyframes         fade-in {   0% { opacity: 0; }   100% { opacity: 1; }   }
+
 * {
   box-sizing: border-box;
 }
@@ -374,6 +379,13 @@ canvas {
   display: flex;
 }
 
+.animate {
+  -webkit-animation: fade-in 2s linear;
+  -moz-animation: fade-in 2s linear;
+  -o-animation: fade-in 2s linear;
+  animation: fade-in 2s linear;
+}
+
 .personal-information {
   width: 30%;
   background-color: #696969;
@@ -493,8 +505,32 @@ canvas {
 }
 
 @media (max-width: 1000px) {
+  /*.container-cvs {
+    width: 800px;
+  }
+  canvas {
+    width: 800px;
+  }
+
+  .ball,
+  .goalkeeper,
+  .mark,
+  .title {
+    margin: -400px auto;
+    width: 800px;
+    height: 400px;
+  }*/
+
   .container {
     max-width: 750px;
+  }
+
+  .card-aboutme {
+    left: 200px;
+  }
+
+  .card-contacs, .card-works {
+    left: 400px;
   }
 
   .header {
