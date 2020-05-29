@@ -231,8 +231,8 @@ canvas {
 }
 
 .skills-photo {
-  width: 150px;
-  height: 150px;
+  width: 120px;
+  height: 120px;
   margin-bottom: 10px;
 }
 
@@ -247,9 +247,10 @@ canvas {
 }
 
 .soft-skills-photo {
-  width: 120px;
-  height: 120px;
+  width: 50px;
+  height: 50px;
   margin-bottom: 10px;
+  margin-left: 20px;
 }
 .lang-photo {
   width: 300px;
@@ -286,8 +287,10 @@ canvas {
 .whatsapp-link {
   display: inline-block;
   width: 200px;
-  height: 100px;
+  height: 50px;
   overflow: hidden;
+  margin-left: inherit;
+  margin-top: 10px;
 }
 
 .whatsapp-info-img {
@@ -386,11 +389,15 @@ canvas {
   animation: fade-in 2s linear;
 }
 
+.personal-description {
+  margin-bottom: 30px;
+}
+
 .personal-information {
   width: 30%;
   background-color: #696969;
   color: #DCDCDC;
-  padding: 10px 20px;
+  padding: 20px 20px;
 }
 
 .personal-photo {
@@ -403,21 +410,27 @@ canvas {
 .about-me__title,
 .part__title {
   color: rgb(92, 162, 219);
-  margin-bottom: 5px;
-  font-size: 24px;
+  margin-bottom: 10px;
+  font-size: 32px;
 }
 
 .about-me__description {
   font-size: 18px;
   border-top: 2px solid #DCDCDC;
   margin: 0;
-  padding-top: 10px;
+  padding-top: 15px;
+}
+
+.languages {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .resume-infomation {
   width: 70%;
   background-color: #D3D3D3;
-  padding: 50px 50px;
+  padding: 20px 20px;
   color: #2F4F4F;
 }
 
@@ -425,18 +438,33 @@ canvas {
   font-size: 32px;
 }
 
+.resume-infomation__position {
+  margin-bottom: 60px;
+}
+
+.resume-infomation__part {
+  margin-bottom: 50px;
+}
+
+.resume-infomation__part:last-child {
+  margin-bottom: 0;
+}
+
 .part__description {
   border-top: 2px solid #2F4F4F;
   padding-top: 20px;
   display: flex;
-  justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;  
 }
 
+.soft-skills {
+  justify-content: space-between;
+}
+
 .about-me__lang {
-  width: 90%;
-  height: auto;
+  width: 120px;
+  height: 60px;
   margin: auto;
   display: block;
 }
@@ -445,6 +473,7 @@ canvas {
   width: 100px;
   height: 100px;
   margin-bottom: 10px;
+  margin-right: 10px;
 }
 
 .photo-length {
@@ -505,22 +534,6 @@ canvas {
 }
 
 @media (max-width: 1000px) {
-  /*.container-cvs {
-    width: 800px;
-  }
-  canvas {
-    width: 800px;
-  }
-
-  .ball,
-  .goalkeeper,
-  .mark,
-  .title {
-    margin: -400px auto;
-    width: 800px;
-    height: 400px;
-  }*/
-
   .container {
     max-width: 750px;
   }
@@ -544,12 +557,6 @@ canvas {
   .contact-info {
     font-size: 14px;
   }
-
-  .whatsapp-info {
-    width: 120px;
-    height: 70px;
-  }
-
   .part-photo__soft {
     width: 30px;
     height: 30px;
@@ -557,13 +564,12 @@ canvas {
   .part-aducation {
     font-size: 14px;
   }
-
   .part-photo {
     width: 70px;
     height: 70px;
   }
   .photo-length {
-    width: 200px;
+    width: 150px;
   }
   .work-photo {
     height: 150px;
@@ -580,6 +586,14 @@ canvas {
   }
   .about-me__description {
     font-size: 16px;
+  }
+  .about-me__title,
+  .part__title {
+    font-size: 24px;
+  }
+  .about-me__lang {
+    width: 60px;
+    height: 30px;
   }
 }
 
@@ -606,6 +620,14 @@ canvas {
   .header__img {
     width: 100%;
   }
+
+  .about-me__title,
+  .part__title {
+    font-size: 20px;
+  }
+  .part__description {
+    justify-content: space-between;
+  }
 }
 
 @media (max-width: 690px) {
@@ -630,11 +652,9 @@ canvas {
      height: 21px;
    }
    .whatsapp-info {
-     width: 250px;
-     height: 100px;
-   }
-   .whatsapp-info-img {
-     height: 100px;
+    width: 250px;
+    height: 70px;
+    margin-left: inherit;
    }
    .intresting-item {
      font-size: 16px;
@@ -645,6 +665,12 @@ canvas {
    .resume-infomation__title {
      font-size: 27px;
    }
+   .resume-infomation__position {
+    margin-bottom: 40px;
+  }
+  .resume-infomation__part {
+    margin-bottom: 30px;
+  } 
    .part-aducation {
      margin-bottom: 20px;
    }
@@ -658,6 +684,17 @@ canvas {
    .part-aducation__section {
      width: 50px;
    }
+   .part__description {
+     justify-content: space-between;
+   }
+   .part-photo {
+    width: 50px;
+    height: 50px;
+  }
+  .photo-length {
+    width: 150px;
+  }
+
   .work-btn {
     font-size: 8px;
   }
@@ -700,5 +737,13 @@ canvas {
     width: 100%;
     text-align: center;
     padding-top: 20px;
+  }
+  .about-me__lang {
+    width: 100px;
+    height: 50px;
+  }
+  .about-me__title,
+  .part__title {
+    font-size: 24px;
   }
 }

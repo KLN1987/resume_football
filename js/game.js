@@ -265,11 +265,15 @@ Mark.prototype.draw = function () {
         </div>
         <div class="card-description skills">
           <img src="img/html_css_js.png" class="skills-photo" alt="HTML, CSS, JS"> 
-          <img src="img/git.png" class="skills-photo" alt="Git"> 
-          <img src="img/github.png" class="skills-photo github-photo" alt="GitHub">
-          <img src="img/kbr_adap.png" class="skills-photo cross-photo" alt="Adaptive Cross-browser">
+          <!--<img src="img/git.png" class="skills-photo" alt="Git">-->
+          <img src="img/git2.png" class="skills-photo" alt="Git">
           <img src="img/sass_less.png" class="skills-photo pre-photo" alt="Sass Less">
-          <img src="img/gulp.png" class="skills-photo gulp-photo" alt="Gulp">
+          <!--<img src="img/github.png" class="skills-photo github-photo" alt="GitHub">-->
+          <!--<img src="img/kbr_adap.png" class="skills-photo cross-photo" alt="Adaptive Cross-browser">-->
+          <img src="img/adaptive2.png" class="skills-photo" alt="Adaptive">
+          <img src="img/github-image.png" class="skills-photo" alt="GitHub">
+          <!--<img src="img/gulp.png" class="skills-photo gulp-photo" alt="Gulp">-->
+          <img src="img/gulp-512.png" class="skills-photo" alt="Gulp">
           <img src="img/avocode.png" class="skills-photo" alt="Avacode">
           <img src="img/figma.png" class="skills-photo" alt="Figma">
           <img src="img/ps.png" class="skills-photo" alt="Photoshop">      
@@ -285,7 +289,9 @@ Mark.prototype.draw = function () {
           <img src="img/humor.png" class="soft-skills-photo" alt="humor"> 
         </div>
         <div class="card-description skills">
-          <img src="img/leaguage.png" class="lang-photo" alt="leaguage"> 
+          <!--<img src="img/leaguage.png" class="lang-photo" alt="leaguage">-->
+          <img src="img/rus-flag.png" class="about-me__lang lang-photo" alt="rus">
+          <img src="img/eng-flag.png" class="about-me__lang lang-photo" alt="eng">
         </div>
         </div>
         </div>
@@ -363,7 +369,7 @@ Mark.prototype.draw = function () {
           <p class="contact-link">github.com/KLN1987</p>
         </div>
         <div class="contact">
-          <a href="https://wa.me/79037540089" class="contact-link whatsapp-link"><img src="img/wts.png" alt="Написать в вотсап" class="whatsapp-info-img"></a>
+          <a href="https://wa.me/79037540089" class="contact-link whatsapp-link"><img src="img/wats.png" alt="Написать в вотсап" class="whatsapp-info-img"></a>
         </div>
       </div>
       </div>
