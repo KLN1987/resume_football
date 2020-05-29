@@ -538,14 +538,6 @@ canvas {
     max-width: 750px;
   }
 
-  .card-aboutme {
-    left: 200px;
-  }
-
-  .card-contacs, .card-works {
-    left: 400px;
-  }
-
   .header {
     max-width: 750px;
   }
