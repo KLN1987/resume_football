@@ -287,7 +287,7 @@ Mark.prototype.draw = function () {
           <img src="img/figma.png" class="skills-photo" alt="Figma">
           <img src="img/ps.png" class="skills-photo" alt="Photoshop">      
         </div>
-        <div class="card-description skills">
+        <div class="card-description skills skills-soft">
           <img src="img/cooperation.png" class="soft-skills-photo" alt="team">
           <img src="img/communicate.png" class="soft-skills-photo" alt="communicate">
           <img src="img/listener.png" class="soft-skills-photo" alt="listener">

@@ -227,13 +227,18 @@ canvas {
   align-items: center;
   flex-wrap: wrap;
   padding-top: 10px;
-  justify-content: space-between;
+  justify-content: center;
+}
+
+.skills-soft {
+  justify-content: start;
 }
 
 .skills-photo {
   width: 120px;
   height: 120px;
   margin-bottom: 10px;
+  margin-right: 20px;
 }
 
 .github-photo,
@@ -677,10 +682,6 @@ canvas {
   .resume-infomation {
     padding: 20px 20px;
   }
-
-  .contact-info {
-    font-size: 14px;
-  }
   .part-photo__soft {
     width: 30px;
     height: 30px;
@@ -735,13 +736,26 @@ canvas {
   }
 
   .card-item,
-  .contact-info,
   .contact-link {
     font-size: 18px;
   }
 
+  .contact-info {
+    font-size: 16px;
+    margin-left: 10px;
+  }
+
   .sertificate-photo {
     width: 100%;
+  }
+
+  .skills-photo {
+    width: 60px;
+    height: 60px;
+  }
+
+  .pre-photo {
+    width: 120px;
   }
 }
 
@@ -775,6 +789,10 @@ canvas {
   }
   .part__description {
     justify-content: space-between;
+  }
+
+  .contact-info {
+    font-size: 14px;
   }
 }
 
@@ -962,21 +980,26 @@ canvas {
   .sertificate-photo {
     height: auto;
   }
-
-  .skills {
-    justify-content: end;
+  .skills-photo{
+    width: 30px;
+    height: 30px;
+  }
+  .pre-photo {
+    width: 60px;
+    height: 60px;
   }
 
+  .skills-soft {
+    justify-content: space-between;
+  }
   .soft-skills-photo {
     width: 40px;
     height: 40px;
+    margin-left: 0;
+    margin-right: 5px;
   }
   .about-me__lang:first-child {
     margin-bottom: 10px;
-  }
-  .pre-photo {
-    width: 120px;
-    height: 120px;
   }
 
   .card-aboutme {
@@ -998,14 +1021,13 @@ canvas {
     margin-left: 10px;
   }
 
-  .contact__img,
-  .github-img {
-    width: 10px;
-    height: 10px;
-  }
-
   .work__info {
     font-size: 12px;
+  }
+
+  .contact__img {
+    width: 10px;
+    height: 10px;
   }
 
   .card-title {
