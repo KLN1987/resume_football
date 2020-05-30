@@ -374,7 +374,7 @@ Mark.prototype.draw = function () {
           <p class="contact-link">@KLN1987</p>
         </div>
         <div class="contact">
-          <img class="contact__img" src="img/github-image.png" alt="github">
+          <img class="contact__img" src="img/github-logo.png" alt="github">
           <p class="contact-link">github.com/KLN1987</p>
         </div>
         <div class="contact">
@@ -442,7 +442,7 @@ Mark.prototype.draw = function () {
         <div class="card-description">
           <p class="card-name">Карпов Лев Николаевич</p>
           <ul class="card-list">
-              <li class="card-item">Мне 32 года.</li>
+              <li class="card-item">Мне 32 года. Родился 18.12.1987г.</li>
               <li class="card-item">Есть успешный, учебный опыт верстки в HTML academy. Сейчас изучаю JS. Имею огромное желание развиваться в
                 Frontend.</li>
               <li class="card-item">Искренне люблю веб-разработку.</li>
@@ -528,8 +528,8 @@ function openResume() {
   resume.classList.add('hidden');
   main.classList.add('animate');
   game.classList.remove('hidden');
-  main.style.display = 'flex';
-  //rules.classList.add('hidden');
+  main.classList.remove('hidden');
+  rules.classList.add('hidden');
   for (var i = 0; i < canvas.length; i++) {
     canvas[i].width = 0;
     canvas[i].height = 0;
@@ -541,8 +541,8 @@ function openGame() {
   resume.classList.remove('hidden');
   main.classList.remove('animate');
   game.classList.add('hidden');
-  main.style.display = 'none';
-  //rules.classList.remove('hidden');
+  main.classList.add('hidden');
+  rules.classList.remove('hidden');
   for (var i = 0; i < canvas.length; i++) {
     canvas[i].width = 1200;
     canvas[i].height = 600;

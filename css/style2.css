@@ -137,7 +137,7 @@ canvas {
   width: 400px;
   height: 600px;
   background-color: #DCDCDC;
-  padding: 20px;
+  padding: 10px;
   overflow-y: scroll;
   z-index: 2;
 }
@@ -185,7 +185,7 @@ canvas {
 }
 
 .card-description {
-  width: 100%;
+  width: 300px;
   border-top: 1px solid black;
   margin: auto;
 }
@@ -274,11 +274,13 @@ canvas {
 .whatsapp-img {
   width: 21px;
   height: 21px;
+  overflow: hidden;
 }
 
 .contact__img {
   width: 21px;
   height: 21px;
+  overflow: hidden;
 }
 
 .whatsapp-info,
@@ -307,6 +309,7 @@ canvas {
 .work-info,
 .work__info {
   text-align: center;
+  font-weight: 600;
   font-family: 'Roboto', sans-serif;
 }
 
@@ -376,7 +379,7 @@ canvas {
 .main {
   box-shadow: 0 4px 6px rgba(122,122,122,.5);
   margin: 0 auto;
-  display: none;
+  display: flex;
 }
 
 .animate {
@@ -530,65 +533,9 @@ canvas {
   font-size: 18px;
 }
 
-.controlers {
-  display: none;
-}
-
-@media (max-width: 1030px) {
+@media (max-width: 1000px) {
   .container {
     max-width: 750px;
-  }
-
-  .container-cvs {
-    width: 700px;
-  }
-
-  canvas {
-    width: 700px;
-    height: 350px;
-  }
-
-  .ball, .goalkeeper, .mark, .title {
-   margin: -350px auto;
-  }
-
-  .controlers {
-    display: block;
-    width: 100px;
-    height: 100px;
-    position: absolute;
-    left: 300px;
-    top: 380px;
-  }
-
-  .controler {
-   width: 30px;
-    height: 30px;
-    background-color: black;
-  }
-
-  .controler-top {
-    position: absolute;
-    top: 0;
-    left: 50px;
-  }
-
-  .controler-right {
-    position: absolute;
-    top: 50px;
-    left: 100px;
-  }
-
-  .controler-down {
-    position: absolute;
-    top: 100px;
-    left: 50px;
-  }
-
-  .controler-left {
-    position: absolute;
-    top: 50px;
-    left: 0;
   }
 
   .header {
@@ -640,30 +587,6 @@ canvas {
     width: 60px;
     height: 30px;
   }
-
-  .card {
-    width: 300px;
-    height: 350px;
-  }
-
-  .card-aboutme {
-    left: 200px;
-  }
-
-  .card-contacs,
-  .card-works {
-    left: 400px;
-  }
-
-  .card-item,
-  .contact-info,
-  .contact-link {
-    font-size: 18px;
-  }
-
-  .sertificate-photo {
-    width: 100%;
-  }
 }
 
 @media (max-width: 780px) {
@@ -699,7 +622,7 @@ canvas {
   }
 }
 
-@media (max-width: 700px) {
+@media (max-width: 690px) {
   .container {
     max-width: 320px;
   }
@@ -815,123 +738,42 @@ canvas {
   .part__title {
     font-size: 24px;
   }
-
-  .container-cvs {
-    width: 320px;
-  }
-
-  canvas {
-    width: 320px;
-    height: 160px;
-  }
-
-  .ball, .goalkeeper, .mark, .title {
-   margin: -160px auto;
-  }
-
-  .controlers {
-    display: block;
-    width: 100px;
-    height: 100px;
-    position: absolute;
-    left: 100px;
-    top: 180px;
-  }
-
-  .controler {
-    width: 30px;
-    height: 30px;
-    background-color: black;
-  }
-
-  .controler-top {
-    position: absolute;
-    top: 0;
-    left: 50px;
-  }
-
-  .controler-right {
-    position: absolute;
-    top: 50px;
-    left: 100px;
-  }
-
-  .controler-down {
-    position: absolute;
-    top: 100px;
-    left: 50px;
-  }
-
-  .controler-left {
-    position: absolute;
-    top: 50px;
-    left: 0;
-  }
-
-  .card {
-    width: 150px;
-    height: 160px;
-    padding: 10px
-  }
-
-  .card-header {
-    font-size: 12px;
-  }
-  .card-name {
-    font-size: 14px;
-    font-weight: 400;
-  }
-  .card-item {
-    font-size: 12px;
-  }
-
-  .sertificate-photo {
-    height: auto;
-  }
-
-  .skills {
-    justify-content: end;
-  }
-
-  .soft-skills-photo {
-    width: 40px;
-    height: 40px;
-  }
-  .about-me__lang:first-child {
-    margin-bottom: 10px;
-  }
-  .pre-photo {
-    width: 120px;
-    height: 120px;
-  }
-
-  .card-aboutme {
-    left: 100px;
-  }
-
-  .card-photo {
-    width: 100px;
-    height: 100px;
-  }
-
-  .card-contacs, 
-  .card-works {
-    left: 200px;
-  }
-
- .contact-link {
-    font-size: 12px;
-    margin-left: 10px;
-  }
-
-  .contact__img,
-  .github-img {
-    width: 10px;
-    height: 10px;
-  }
-
-  .work__info {
-    font-size: 12px;
-  }
 }
 
+.controlers {
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  top: 450px;
+  left: 700px;
+}
+
+.controler {
+  width: 30px;
+  height: 30px;
+  background-color: black;
+}
+
+.controler-top {
+  position: absolute;
+  top: 0;
+  left: 50px;
+}
+
+.controler-right {
+  position: absolute;
+  top: 50px;
+  left: 100px;
+}
+
+.controler-down {
+  position: absolute;
+  top: 100px;
+  left: 50px;
+}
+
+.controler-left {
+  position: absolute;
+  top: 50px;
+  left: 0;
+}
