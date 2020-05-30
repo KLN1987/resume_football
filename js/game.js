@@ -119,7 +119,7 @@ function init() {
   container.addEventListener('mousedown', ballMove);
   //ball.addEventListener('click', mouseClick);
 
-  document.addEventListener('touchstart', touchDownBtn);
+  document.addEventListener('toucmove', touchDownBtn);
   document.addEventListener('touchend', touchUpBtn);
 
 
