@@ -739,3 +739,42 @@ canvas {
     font-size: 24px;
   }
 }
+
+.controlers {
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  top: 450px;
+  left: 700px;
+}
+
+.controler {
+  width: 30px;
+  height: 30px;
+  background-color: black;
+}
+
+.controler-top {
+  position: absolute;
+  top: 0;
+  left: 50px;
+}
+
+.controler-right {
+  position: absolute;
+  top: 50px;
+  left: 100px;
+}
+
+.controler-down {
+  position: absolute;
+  top: 100px;
+  left: 50px;
+}
+
+.controler-left {
+  position: absolute;
+  top: 50px;
+  left: 0;
+}
+

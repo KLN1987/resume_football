@@ -52,11 +52,11 @@ var isPlaying;
 var mouseX;
 var mouseY;
 
-var tarWidth;
-var tarHeight;
-var tarX;
-var tarY;
-var touch;
+var topBtn;
+var rightBtn;
+var downBtn;
+var leftBtn;
+//var touch;
 
 var mouseControl = false;
 
@@ -73,6 +73,11 @@ function init() {
   header = document.querySelector('.header');
   main = document.querySelector('.main');
   canvas = document.querySelectorAll('canvas');
+  topBtn = document.querySelector('.controler-top');
+  rightBtn = document.querySelector('.controler-right');
+  downBtn = document.querySelector('.controler-down');
+  leftBtn = document.querySelector('.controler-left');
+
 
   map = document.querySelector('.map');
   ctxMap = map.getContext('2d');
@@ -112,7 +117,11 @@ function init() {
   document.addEventListener('keyup', checkKeyUp);
 
   container.addEventListener('mousedown', ballMove);
-  ball.addEventListener('click', mouseClick);
+  //ball.addEventListener('click', mouseClick);
+
+  document.addEventListener('touchstart', touchDownBtn);
+  document.addEventListener('touchend', touchUpBtn);
+
 
   player = new Player();
   goalkeeper = new Goalkeeper();
@@ -155,10 +164,10 @@ function init() {
 
 
 //клик мыши
-function mouseClick(evt) {
+/*function mouseClick(evt) {
     player.drawX = (evt.pageX - container.offsetLeft) - player.width/2;
     player.drawY = (evt.pageY - container.offsetTop) - player.height/2;
-};
+};*/
 
 //движение мяча
 function loop() {
@@ -567,5 +576,44 @@ function drawBg() {
   ctxMap.drawImage(bgGame, 0, 0, 600, 400, //размеры картинки
     0, 0, GAME_WIDTH, GAME_HEIGHT);//размеры на которые надо растянуть
 };
+
+function  touchDownBtn (evt) {
+  if (evt.target.classList.contains('controler-top')) {
+    player.isUp = true;
+    evt.preventDefault();
+  }
+  if (evt.target.classList.contains('controler-down')) {
+    player.isDown = true;
+    evt.preventDefault();
+  }
+  if (evt.target.classList.contains('controler-left')) {
+    player.isLeft = true;
+    evt.preventDefault();
+  }
+  if (evt.target.classList.contains('controler-right')) {
+    player.isRight = true;
+    evt.preventDefault();
+  }
+}
+
+function touchUpBtn(evt) {
+  if (evt.target.classList.contains('controler-top')) {
+    player.isUp = false;
+    evt.preventDefault();
+  }
+  if (evt.target.classList.contains('controler-down')) {
+    player.isDown = false;
+    evt.preventDefault();
+  }
+  if (evt.target.classList.contains('controler-left')) {
+    player.isLeft = false;
+    evt.preventDefault();
+  }
+  if (evt.target.classList.contains('controler-right')) {
+    player.isRight = false;
+    evt.preventDefault();
+  }
+}
+
 
 new WOW().init();
