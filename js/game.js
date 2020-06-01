@@ -1,15 +1,15 @@
 'use stirct';
 window.onload = init;
 
-// объявдяем переменные
-var container;
+// объявляем переменные
 var containerCard;
 var card;
 var cardClose;
 var header;
 var main;
-var rules;
 var canvas;
+var warning;
+
 
 var card;
 
@@ -52,11 +52,11 @@ var isPlaying;
 var mouseX;
 var mouseY;
 
+var controler;
 var topBtn;
 var rightBtn;
 var downBtn;
 var leftBtn;
-//var touch;
 
 var mouseControl = false;
 
@@ -65,10 +65,14 @@ var requestAnimFrame = window.requestAnimationFrame || window.webkitRequestAnima
   window.mozRequestAnimationFrame || window.oRequestAnimationFrame ||
   window.msRequestAnimationFrame; 
 
+var container = document.querySelector('.container-cvs');  
+var loading = document.createElement('div');
+loading.className = 'loading';  
+container.append(loading);
+
 //игра
 function init() {
-  container = document.querySelector('.container-cvs');
-  rules = document.querySelector('.rules');
+
   containerCard = document.querySelector('.container-card');
   header = document.querySelector('.header');
   main = document.querySelector('.main');
@@ -77,8 +81,9 @@ function init() {
   rightBtn = document.querySelector('.controler-right');
   downBtn = document.querySelector('.controler-down');
   leftBtn = document.querySelector('.controler-left');
-
-
+  controler = document.querySelector('.controler');
+  warning = document.querySelector('.warning');
+  
   map = document.querySelector('.map');
   ctxMap = map.getContext('2d');
 
@@ -116,17 +121,19 @@ function init() {
   document.addEventListener('keydown', checkKeyDown);
   document.addEventListener('keyup', checkKeyUp);
 
-  container.addEventListener('mousedown', ballMove);
-  //ball.addEventListener('click', mouseClick);
+  ball.addEventListener('mousedown', ballMove);
+  ball.addEventListener('click', mouseClick);
+  //ball.addEventListener('mousemove', mouseClick);
 
   document.addEventListener('touchstart', touchDownBtn);
   document.addEventListener('touchend', touchUpBtn);
-
+  document.addEventListener('click', writeWarning);
 
   player = new Player();
   goalkeeper = new Goalkeeper();
   mark = new Mark();
 
+  loading.style.display = 'none';
   drawBg();
   startLoop();
   updateTitles();
@@ -146,6 +153,16 @@ function init() {
     player.drawX = mouseX - player.width/2;
     player.drawY = mouseY - player.height/2
 
+  if (container.offsetWidth === 700) {
+    player.drawX = mouseX*1.75 - player.width/2;
+    player.drawY = mouseY*1.75 - player.height/2;
+  } 
+
+  if (container.offsetWidth === 320) {
+    player.drawX = mouseX*3.75 - player.width/2;
+    player.drawY = mouseY*3.75 - player.height/2;
+  }
+
   };
 
  function onMouseUp(upEvt) {
@@ -153,6 +170,16 @@ function init() {
 
     player.drawX = mouseX - player.height/2;
     player.drawY = mouseY - player.width/2;
+
+    if (container.offsetWidth === 700) {
+      player.drawX = mouseX*1.75 - player.width/2;
+      player.drawY = mouseY*1.75 - player.height/2;
+    }
+
+    if (container.offsetWidth === 320) {
+      player.drawX = mouseX*3.75 - player.width/2;
+      player.drawY = mouseY*3.75 - player.height/2;
+    }
 
     container.removeEventListener('mousemove', onMouseMove);
     container.removeEventListener('mouseup', onMouseUp);
@@ -162,12 +189,24 @@ function init() {
   container.addEventListener('mouseup', onMouseUp);
 };
 
-
 //клик мыши
-/*function mouseClick(evt) {
-    player.drawX = (evt.pageX - container.offsetLeft) - player.width/2;
-    player.drawY = (evt.pageY - container.offsetTop) - player.height/2;
-};*/
+function mouseClick(moveEvt) {
+  mouseX = moveEvt.pageX - container.offsetLeft;
+  mouseY = moveEvt.pageY - container.offsetTop;
+
+  player.drawX = mouseX - player.width/2;
+  player.drawY = mouseY - player.height/2
+
+  if (container.offsetWidth === 700) {
+    player.drawX = mouseX*1.75 - player.width/2;
+    player.drawY = mouseY*1.75 - player.height/2;
+  }
+
+  if (container.offsetWidth === 320) {
+    player.drawX = mouseX*3.75 - player.width/2;
+    player.drawY = mouseY*3.75 - player.height/2;
+  }
+};
 
 //движение мяча
 function loop() {
@@ -571,49 +610,61 @@ function modalCard() {
   cardClose.addEventListener('click', closeCard);
   header.addEventListener('click', closeCard);
 }
-// рисует фон игры
-function drawBg() {
-  ctxMap.drawImage(bgGame, 0, 0, 600, 400, //размеры картинки
-    0, 0, GAME_WIDTH, GAME_HEIGHT);//размеры на которые надо растянуть
-};
+
+function writeWarning(evt) {
+  if (evt.target.classList.contains('controler')) {
+    warning.style.display = 'flex';
+    player.drawX = STAR_COORD_BALL_X;
+    player.drawY = STAR_COORD_BALL_Y;
+  }
+  setTimeout(() => {
+    warning.style.display = 'none';
+  }, 3000); 
+}
 
 function  touchDownBtn (evt) {
   if (evt.target.classList.contains('controler-top')) {
     player.isUp = true;
-    evt.preventDefault();
+   // evt.preventDefault();
   }
   if (evt.target.classList.contains('controler-down')) {
     player.isDown = true;
-    evt.preventDefault();
+   // evt.preventDefault();
   }
   if (evt.target.classList.contains('controler-left')) {
     player.isLeft = true;
-    evt.preventDefault();
+   // evt.preventDefault();
   }
   if (evt.target.classList.contains('controler-right')) {
     player.isRight = true;
-    evt.preventDefault();
+   // evt.preventDefault();
   }
 }
 
 function touchUpBtn(evt) {
   if (evt.target.classList.contains('controler-top')) {
     player.isUp = false;
-    evt.preventDefault();
+    //evt.preventDefault();
   }
   if (evt.target.classList.contains('controler-down')) {
     player.isDown = false;
-    evt.preventDefault();
+   // evt.preventDefault();
   }
   if (evt.target.classList.contains('controler-left')) {
     player.isLeft = false;
-    evt.preventDefault();
+   // evt.preventDefault();
   }
   if (evt.target.classList.contains('controler-right')) {
     player.isRight = false;
-    evt.preventDefault();
+   // evt.preventDefault();
   }
 }
 
+
+// рисует фон игры
+function drawBg() {
+  ctxMap.drawImage(bgGame, 0, 0, 600, 400, //размеры картинки
+    0, 0, GAME_WIDTH, GAME_HEIGHT);//размеры на которые надо растянуть
+};
 
 new WOW().init();
