@@ -127,7 +127,7 @@ function init() {
 
   document.addEventListener('touchstart', touchDownBtn);
   document.addEventListener('touchend', touchUpBtn);
-  document.addEventListener('click', writeWarning);
+  document.addEventListener('click', clickMove);
 
   player = new Player();
   goalkeeper = new Goalkeeper();
@@ -611,15 +611,28 @@ function modalCard() {
   header.addEventListener('click', closeCard);
 }
 
-function writeWarning(evt) {
-  if (evt.target.classList.contains('controler')) {
+function clickMove(evt) {
+  if (evt.target.classList.contains('controler-top')) {
+    player.drawY -= player.speed * 10;
+  }
+  if (evt.target.classList.contains('controler-down')) {
+    player.drawY += player.speed * 10;
+  }
+  if (evt.target.classList.contains('controler-left')) {
+    player.drawX -= player.speed * 10;
+  }
+  if (evt.target.classList.contains('controler-right')) {
+    player.drawX += player.speed * 10;
+  }
+
+  /*if (evt.target.classList.contains('controler')) {
     warning.style.display = 'flex';
     player.drawX = STAR_COORD_BALL_X;
     player.drawY = STAR_COORD_BALL_Y;
   }
   setTimeout(() => {
     warning.style.display = 'none';
-  }, 3000); 
+  }, 3000); */
 }
 
 function  touchDownBtn (evt) {
