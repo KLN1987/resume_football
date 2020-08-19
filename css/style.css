@@ -213,7 +213,7 @@ canvas {
 
 .card-photo {
   display: block;
-  width: 200px;
+  width: 150px;
   overflow: hidden;
   height: 200px;
   margin: 0 auto;
@@ -1118,7 +1118,7 @@ canvas {
   }
 
   .card-photo {
-    width: 100px;
+    width: 70px;
     height: 100px;
   }
 
