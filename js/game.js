@@ -110,6 +110,7 @@ function init() {
   title.width = GAME_WIDTH;
   title.height = GAME_HEIGHT;
 
+
   ctxTitle.fillStyle = "#ffffff";
   ctxTitle.font = 'bold 24px sans-serif';
 
@@ -123,7 +124,6 @@ function init() {
 
   ball.addEventListener('mousedown', ballMove);
   ball.addEventListener('click', mouseClick);
-  //ball.addEventListener('mousemove', mouseClick);
 
   document.addEventListener('touchstart', touchDownBtn);
   document.addEventListener('touchend', touchUpBtn);
@@ -313,18 +313,15 @@ Mark.prototype.draw = function () {
         </div>
         <div class="card-description skills">
           <img src="img/html_css_js.png" class="skills-photo" alt="HTML, CSS, JS"> 
-          <!--<img src="img/git.png" class="skills-photo" alt="Git">-->
           <img src="img/git2.png" class="skills-photo" alt="Git">
           <img src="img/sass_less.png" class="skills-photo pre-photo" alt="Sass Less">
-          <!--<img src="img/github.png" class="skills-photo github-photo" alt="GitHub">-->
-          <!--<img src="img/kbr_adap.png" class="skills-photo cross-photo" alt="Adaptive Cross-browser">-->
           <img src="img/adaptive2.png" class="skills-photo" alt="Adaptive">
           <img src="img/github-image.png" class="skills-photo" alt="GitHub">
-          <!--<img src="img/gulp.png" class="skills-photo gulp-photo" alt="Gulp">-->
           <img src="img/gulp-512.png" class="skills-photo" alt="Gulp">
           <img src="img/avocode.png" class="skills-photo" alt="Avacode">
           <img src="img/figma.png" class="skills-photo" alt="Figma">
-          <img src="img/ps.png" class="skills-photo" alt="Photoshop">      
+          <img src="img/ps.png" class="skills-photo" alt="Photoshop">
+          <img src="img/webpack.png" class="skills-photo" alt="Webpack">       
         </div>
         <div class="card-description skills skills-soft">
           <img src="img/cooperation.png" class="soft-skills-photo" alt="team">
@@ -337,7 +334,6 @@ Mark.prototype.draw = function () {
           <img src="img/humor.png" class="soft-skills-photo" alt="humor"> 
         </div>
         <div class="card-description skills">
-          <!--<img src="img/leaguage.png" class="lang-photo" alt="leaguage">-->
           <img src="img/rus-flag.png" class="about-me__lang lang-photo" alt="rus">
           <img src="img/eng-flag.png" class="about-me__lang lang-photo" alt="eng">
         </div>
@@ -368,19 +364,21 @@ Mark.prototype.draw = function () {
             <a href="https://github.com/KLN1987/1072713-sedona-18" type="button" class="work-btn">Открыть репозиторий</a> 
           </div>
           <div class="card-description works">
-            <img class="work__photo" src="img/delivery.png" alt="Сайт Delivery-food">
-            <p class="work__info">Учебный проект. Адаптивная верстка, с применением Flexbox, по макету из Figma. Использовался чистый JavaScript, для регистрации на сайте,
-              формирований карточек товаров ресторанов, реализован поиск блюд, корзина с товароми и калькулятором. Информация о заказе записывается Local Storage.
+            <img class="work__photo" src="img/netclicks.png" alt="Сайт Netclicks">
+            <p class="work__info">Учебный проект на чистом JavaScript. Поиск фильмов и сериалов.
+            Работа с DOM элементами и использование событий. Работа с сервером, получение и вывод фильмов.
             </p>
-            <a href="https://github.com/KLN1987/delivery_food_js/" type="button" class="work-btn">Открыть репозиторий</a> 
-            <a href="https://kln1987.github.io/delivery_food_js/" type="button" class="work-btn">Открыть страницу</a> 
+            <a href="https://github.com/KLN1987/netcklicks_js" type="button" class="work-btn">Открыть репозиторий</a> 
+            <a href="https://kln1987.github.io/netcklicks_js/" type="button" class="work-btn">Открыть страницу</a> 
           </div>
           <div class="card-description works">
-            <img class="work__photo" src="img/star_wars.png" alt="Сайт Star Wars">
-            <p class="work__info">Учебный проект. Адаптивная верстка, с применением Flexbox, jQuery, по макету из Figma. Слайдер реализован при помощи Owl Carousel. 
-              Реализовано открытие видео с YouTube при помощи FancyBox.
+            <img class="work__photo" src="img/CPS_Company.png" alt="Сайт CPS Company">
+            <p class="work__info">Учебный проект. Адаптивная верстка, с применением Flexbox, препроцессора Sass,
+            по макету из Figma. Слайдер реализован при помощи Swiper. Сборка проекта происходит с помощью Webpack. 
+            Работа с модальными окнами и боковым меню происходит при помощи чистого JavaScript.
             </p>
-            <a href="https://github.com/KLN1987/Star-Wars" type="button" class="work-btn">Открыть репозиторий</a> 
+            <a href="https://github.com/KLN1987/JM1.3" type="button" class="work-btn">Открыть репозиторий</a>
+            <a href="https://kln1987.github.io/JM1.3/" type="button" class="work-btn">Открыть страницу</a>  
           </div>
           </div>
           </div>
@@ -568,7 +566,6 @@ function openResume() {
   main.classList.add('animate');
   game.classList.remove('hidden');
   main.style.display = 'flex';
-  //rules.classList.add('hidden');
   for (var i = 0; i < canvas.length; i++) {
     canvas[i].width = 0;
     canvas[i].height = 0;
@@ -581,7 +578,6 @@ function openGame() {
   main.classList.remove('animate');
   game.classList.add('hidden');
   main.style.display = 'none';
-  //rules.classList.remove('hidden');
   for (var i = 0; i < canvas.length; i++) {
     canvas[i].width = 1200;
     canvas[i].height = 600;
@@ -594,6 +590,15 @@ function closeCard() {
   player.drawX = STAR_COORD_BALL_X;
   player.drawY = STAR_COORD_BALL_Y;
 }
+
+//нажатие esc
+function escKeydownHandler(evt) {
+  var ESC_KEYCODE = 27;
+  if (evt.keyCode === ESC_KEYCODE) {
+    closeCard();
+  }
+}
+
 // надписи в игре
 function updateTitles() {
   ctxTitle.clearRect(0, 0, GAME_WIDTH, GAME_HEIGHT);
@@ -603,12 +608,15 @@ function updateTitles() {
   ctxTitle.fillText("Мои работы", 965, 175);
   ctxTitle.fillText("Контакты", 995, 470);
 }
+
 function modalCard() {  
   cardClose = containerCard.querySelector('.card-close');
   card = containerCard.querySelector('.card');  
   containerCard.style.display='block';
   cardClose.addEventListener('click', closeCard);
   header.addEventListener('click', closeCard);
+  document.addEventListener('keydown', escKeydownHandler);
+  co
 }
 
 function clickMove(evt) {
@@ -624,15 +632,6 @@ function clickMove(evt) {
   if (evt.target.classList.contains('controler-right')) {
     player.drawX += player.speed * 10;
   }
-
-  /*if (evt.target.classList.contains('controler')) {
-    warning.style.display = 'flex';
-    player.drawX = STAR_COORD_BALL_X;
-    player.drawY = STAR_COORD_BALL_Y;
-  }
-  setTimeout(() => {
-    warning.style.display = 'none';
-  }, 3000); */
 }
 
 function  touchDownBtn (evt) {

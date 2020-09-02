@@ -559,6 +559,38 @@ canvas {
   margin-bottom: 8px;
 }
 
+.part-aducation__link {
+  margin: auto;
+  color: rgb(92, 162, 219);
+  position: relative;
+  margin-bottom: 15px;
+}
+
+.part-aducation__link::before {
+  content: '';
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  height: 2px;
+  background-color: rgb(92, 162, 219);
+  display: block;
+  width: 0;
+  transition: width 0.3s ease-out;
+  -webkit-transition: width 0.3s ease-out;
+  -moz-transition: width 0.3s ease-out;
+  -ms-transition: width 0.3s ease-out;
+  -o-transition: width 0.3s ease-out;
+}
+
+.part-aducation__link:hover::before {
+  width: 100%;
+}
+
+.part-aducation__link:active {
+  opacity: 0.6;
+}
+
+
 .part__sertificates {
   display: flex;
   justify-content: space-between;
@@ -927,7 +959,7 @@ canvas {
   }
 
   .part__description {
-    justify-content: space-between;
+    justify-content: space-around;
   }
 
   .part-photo {
