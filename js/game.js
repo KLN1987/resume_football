@@ -52,7 +52,7 @@ var isPlaying;
 var mouseX;
 var mouseY;
 
-var controler-btn;
+var controlerBtn;
 var topBtn;
 var rightBtn;
 var downBtn;
@@ -81,7 +81,7 @@ function init() {
   rightBtn = document.querySelector('.controler-btn-right');
   downBtn = document.querySelector('.controler-btn-down');
   leftBtn = document.querySelector('.controler-btn-left');
-  controler-btn = document.querySelector('.controler-btn');
+  controlerBtn = document.querySelector('.controler-btn');
   warning = document.querySelector('.warning');
   
   map = document.querySelector('.map');
