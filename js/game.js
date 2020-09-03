@@ -319,7 +319,7 @@ Mark.prototype.draw = function () {
           <img src="img/github-image.png" class="skills-photo" alt="GitHub">
           <img src="img/gulp-512.png" class="skills-photo" alt="Gulp">
           <img src="img/avocode.png" class="skills-photo" alt="Avacode">
-          <img src="img/figma.png" class="skills-photo" alt="Figma">
+          <img src="img/figma.jpg" class="skills-photo" alt="Figma">
           <img src="img/ps.png" class="skills-photo" alt="Photoshop">
           <img src="img/webpack.png" class="skills-photo" alt="Webpack">       
         </div>
@@ -335,7 +335,7 @@ Mark.prototype.draw = function () {
         </div>
         <div class="card-description skills">
           <img src="img/rus-flag.png" class="about-me__lang lang-photo" alt="rus">
-          <img src="img/eng-flag.png" class="about-me__lang lang-photo" alt="eng">
+          <img src="img/eng-flag.jpg" class="about-me__lang lang-photo" alt="eng">
         </div>
         </div>
         </div>
@@ -358,13 +358,13 @@ Mark.prototype.draw = function () {
             <a href="https://github.com/KLN1987/" class="contact-info">github.com/KLN1987</a>
           </div>
           <div class="card-description works">
-            <img class="work__photo" src="img/sedona.png" alt="Сайт Седона">
+            <img class="work__photo" src="img/edona.jpg" alt="Сайт Седона">
             <p class="work__info">Учебный проект. Защитил на 100%. Кроссбраузерна и адаптивная верстка многостраничного сайта, по макету psd, с использованием Avacode.
               Работа производилась с применением препроцессора LESS, сборщика Gulp, с применением БЭМ, Flexbox и PerfectPixel</p>
             <a href="https://github.com/KLN1987/1072713-sedona-18" type="button" class="work-btn">Открыть репозиторий</a> 
           </div>
           <div class="card-description works">
-            <img class="work__photo" src="img/netclicks.png" alt="Сайт Netclicks">
+            <img class="work__photo" src="img/netclicks.jpg" alt="Сайт Netclicks">
             <p class="work__info">Учебный проект на чистом JavaScript. Поиск фильмов и сериалов.
             Работа с DOM элементами и использование событий. Работа с сервером, получение и вывод фильмов.
             </p>
@@ -372,7 +372,7 @@ Mark.prototype.draw = function () {
             <a href="https://kln1987.github.io/netcklicks_js/" type="button" class="work-btn">Открыть страницу</a> 
           </div>
           <div class="card-description works">
-            <img class="work__photo" src="img/CPS_Company.png" alt="Сайт CPS Company">
+            <img class="work__photo" src="img/CPS_Company.jpg" alt="Сайт CPS Company">
             <p class="work__info">Учебный проект. Адаптивная верстка, с применением Flexbox, препроцессора Sass,
             по макету из Figma. Слайдер реализован при помощи Swiper. Сборка проекта происходит с помощью Webpack. 
             Работа с модальными окнами и боковым меню происходит при помощи чистого JavaScript.
@@ -616,7 +616,6 @@ function modalCard() {
   cardClose.addEventListener('click', closeCard);
   header.addEventListener('click', closeCard);
   document.addEventListener('keydown', escKeydownHandler);
-  co
 }
 
 function clickMove(evt) {
