@@ -52,7 +52,7 @@ var isPlaying;
 var mouseX;
 var mouseY;
 
-var controler;
+var controler-btn;
 var topBtn;
 var rightBtn;
 var downBtn;
@@ -77,11 +77,11 @@ function init() {
   header = document.querySelector('.header');
   main = document.querySelector('.main');
   canvas = document.querySelectorAll('canvas');
-  topBtn = document.querySelector('.controler-top');
-  rightBtn = document.querySelector('.controler-right');
-  downBtn = document.querySelector('.controler-down');
-  leftBtn = document.querySelector('.controler-left');
-  controler = document.querySelector('.controler');
+  topBtn = document.querySelector('.controler-btn-top');
+  rightBtn = document.querySelector('.controler-btn-right');
+  downBtn = document.querySelector('.controler-btn-down');
+  leftBtn = document.querySelector('.controler-btn-left');
+  controler-btn = document.querySelector('.controler-btn');
   warning = document.querySelector('.warning');
   
   map = document.querySelector('.map');
@@ -619,53 +619,53 @@ function modalCard() {
 }
 
 function clickMove(evt) {
-  if (evt.target.classList.contains('controler-top')) {
+  if (evt.target.classList.contains('controler-btn-top')) {
     player.drawY -= player.speed * 10;
   }
-  if (evt.target.classList.contains('controler-down')) {
+  if (evt.target.classList.contains('controler-btn-down')) {
     player.drawY += player.speed * 10;
   }
-  if (evt.target.classList.contains('controler-left')) {
+  if (evt.target.classList.contains('controler-btn-left')) {
     player.drawX -= player.speed * 10;
   }
-  if (evt.target.classList.contains('controler-right')) {
+  if (evt.target.classList.contains('controler-btn-right')) {
     player.drawX += player.speed * 10;
   }
 }
 
 function  touchDownBtn (evt) {
-  if (evt.target.classList.contains('controler-top')) {
+  if (evt.target.classList.contains('controler-btn-top')) {
     player.isUp = true;
    // evt.preventDefault();
   }
-  if (evt.target.classList.contains('controler-down')) {
+  if (evt.target.classList.contains('controler-btn-down')) {
     player.isDown = true;
    // evt.preventDefault();
   }
-  if (evt.target.classList.contains('controler-left')) {
+  if (evt.target.classList.contains('controler-btn-left')) {
     player.isLeft = true;
    // evt.preventDefault();
   }
-  if (evt.target.classList.contains('controler-right')) {
+  if (evt.target.classList.contains('controler-btn-right')) {
     player.isRight = true;
    // evt.preventDefault();
   }
 }
 
 function touchUpBtn(evt) {
-  if (evt.target.classList.contains('controler-top')) {
+  if (evt.target.classList.contains('controler-btn-top')) {
     player.isUp = false;
     //evt.preventDefault();
   }
-  if (evt.target.classList.contains('controler-down')) {
+  if (evt.target.classList.contains('controler-btn-down')) {
     player.isDown = false;
    // evt.preventDefault();
   }
-  if (evt.target.classList.contains('controler-left')) {
+  if (evt.target.classList.contains('controler-btn-left')) {
     player.isLeft = false;
    // evt.preventDefault();
   }
-  if (evt.target.classList.contains('controler-right')) {
+  if (evt.target.classList.contains('controler-btn-right')) {
     player.isRight = false;
    // evt.preventDefault();
   }

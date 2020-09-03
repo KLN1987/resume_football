@@ -606,7 +606,7 @@ canvas {
   font-size: 18px;
 }
 
-.controlers {
+.controler-btns {
   display: none;
 }
 
@@ -631,7 +631,7 @@ canvas {
     margin: -350px auto;
   }
 
-  .controlers {
+  .controler-btns {
     display: block;
     width: 250px;
     height: 150px;
@@ -640,21 +640,21 @@ canvas {
     top: 380px;
   }
 
-  .controler {
+  .controler-btn {
     width: 80px;
     height: 50px;
     background-color: inherit;
     border: none;
   }
 
-  .controler-top {
+  .controler-btn-top {
     position: absolute;
     top: 0;
     left: 80px;
   }
 
-  .controler:before,
-  .controler:after {
+  .controler-btn:before,
+  .controler-btn:after {
     content: "";
     height: 100%;
     width: 50%;
@@ -663,7 +663,7 @@ canvas {
     background: black;
   }
 
-  .controler-top:before {
+  .controler-btn-top:before {
     left: 0;
     transform: skew(0deg, -10deg);
     -webkit-transform: skew(0deg, -10deg);
@@ -672,7 +672,7 @@ canvas {
     -o-transform: skew(0deg, -10deg);
   }
 
-  .controler-top:after {
+  .controler-btn-top:after {
     right: 0;
     transform: skew(0deg, 10deg);
     -webkit-transform: skew(0deg, 10deg);
@@ -681,7 +681,7 @@ canvas {
     -o-transform: skew(0deg, 10deg);
   }
 
-  .controler-right {
+  .controler-btn-right {
     position: absolute;
     top: 80px;
     left: 170px;
@@ -692,8 +692,8 @@ canvas {
     -o-transform: rotate(-90deg);
   }
 
-  .controler-right:before,
-  .controler-left::before {
+  .controler-btn-right:before,
+  .controler-btn-left::before {
     left: 0;
     transform: skew(0deg, 10deg);
     -webkit-transform: skew(0deg, 10deg);
@@ -702,8 +702,8 @@ canvas {
     -o-transform: skew(0deg, 10deg);
   }
 
-  .controler-right:after,
-  .controler-left:after {
+  .controler-btn-right:after,
+  .controler-btn-left:after {
     right: 0;
     transform: skew(0deg, -10deg);
     -webkit-transform: skew(0deg, -10deg);
@@ -712,23 +712,23 @@ canvas {
     -o-transform: skew(0deg, -10deg);
   }
 
-  .controler-down {
+  .controler-btn-down {
     position: absolute;
     top: 160px;
     left: 80px;
   }
 
-  .controler-down:before {
+  .controler-btn-down:before {
     left: 0;
     transform: skew(0deg, 10deg);
   }
 
-  .controler-down:after {
+  .controler-btn-down:after {
     right: 0;
     transform: skew(0deg, -10deg);
   }
 
-  .controler-left {
+  .controler-btn-left {
     position: absolute;
     top: 80px;
     left: -10px;
@@ -739,7 +739,7 @@ canvas {
     -o-transform: rotate(90deg);
   }
 
-  .controler-center {
+  .controler-btn-center {
     width: 90px;
     height: 90px;
     background-color: #D3D3D3;
@@ -1053,7 +1053,7 @@ canvas {
     font-size: 12px;
     margin-left: 5px;
   }
-  .controlers {
+  .controler-btns {
     display: block;
     width: 150px;
     height: 150px;
@@ -1062,35 +1062,35 @@ canvas {
     top: 180px;
   }
 
-  .controler {
+  .controler-btn {
     width: 50px;
     height: 30px;
     background-color: inherit;
     border: none;
   }
 
-  .controler-top {
+  .controler-btn-top {
     position: absolute;
     top: 0;
     left: 50px;
   }
 
-  .controler-right {
+  .controler-btn-right {
     top: 50px;
     left: 100px;
   }
 
-  .controler-down {
+  .controler-btn-down {
     top: 100px;
     left: 50px;
   }
 
-  .controler-left {
+  .controler-btn-left {
     top: 50px;
     left: 0;
   }
 
-  .controler-center {
+  .controler-btn-center {
     width: 60px;
     height: 60px;
     top: 35px;
